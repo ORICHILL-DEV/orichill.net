@@ -1,4 +1,12 @@
-# Добро Пожаловать на Википедию сервера ORICHILL!
+---
+title: Вики
+aside: false
+outline: false
+---
+
+<WikiHome />
+
+## О сервере
 
 `🍃` **ㆍ&#x20;**<span class="oc-c-primary">**ORI**</span>**CHILL** — это уникальный сплав хардкора и ламповости. Мы усложнили мир, чтобы каждый твой шаг имел значение, но сбалансировали это удобными механиками для комфортной игры. В основе — <span class="oc-c-primary">**Vanilla**</span> с элементами <span class="oc-c-primary">**PvE**</span>, <span class="oc-c-primary">**RPG**</span> и погружением в [<span class="oc-c-primary">**полу-RP**</span>](/wiki/main/faq#a-gde-tut-rp).
 
