@@ -47,7 +47,7 @@ const steps = [
           а ламповое сообщество помогает его пройти.
         </p>
         <div class="oc-ip">
-          <button class="oc-ip__btn" type="button" :aria-label="`Скопировать адрес ${IP}`" @click="copyIp">
+          <button :class="['oc-ip__btn', { 'is-copied': copied }]" type="button" :aria-label="`Скопировать адрес ${IP}`" @click="copyIp">
             <span class="oc-ip__label">IP</span>
             <code class="oc-ip__addr">{{ IP }}</code>
             <span class="oc-ip__hint" aria-live="polite">{{ copied ? 'Скопировано' : 'Копировать' }}</span>
@@ -63,10 +63,10 @@ const steps = [
     </section>
 
     <section class="oc-section">
-      <h2 class="oc-h2">Чем живёт сервер</h2>
-      <p class="oc-sub">Основа ванильная, но мы усложнили PvE для тех, кому стало тесно в обычном Minecraft, и сбалансировали это удобными механиками.</p>
+      <h2 class="oc-h2 oc-reveal">Чем живёт сервер</h2>
+      <p class="oc-sub oc-reveal" style="--d: 1">Основа ванильная, но мы усложнили PvE для тех, кому стало тесно в обычном Minecraft, и сбалансировали это удобными механиками.</p>
       <div class="oc-grid">
-        <a v-for="f in features" :key="f.title" class="oc-card" :href="withBase(f.link)">
+        <a v-for="(f, i) in features" :key="f.title" class="oc-card oc-reveal" :style="{ '--d': i % 3 }" :href="withBase(f.link)">
           <span class="oc-card__icon" aria-hidden="true">{{ f.icon }}</span>
           <h3 class="oc-card__title">{{ f.title }}</h3>
           <p class="oc-card__text">{{ f.text }}</p>
@@ -75,9 +75,9 @@ const steps = [
     </section>
 
     <section id="start" class="oc-section">
-      <h2 class="oc-h2">Как начать</h2>
+      <h2 class="oc-h2 oc-reveal">Как начать</h2>
       <ol class="oc-steps">
-        <li v-for="s in steps" :key="s.n" class="oc-step">
+        <li v-for="(s, i) in steps" :key="s.n" class="oc-step oc-reveal" :style="{ '--d': i }">
           <span class="oc-step__n">{{ s.n }}</span>
           <h3 class="oc-step__title">{{ s.title }}</h3>
           <p class="oc-step__text">{{ s.text }}</p>
@@ -87,7 +87,7 @@ const steps = [
     </section>
 
     <section class="oc-section">
-      <div class="oc-band">
+      <div class="oc-band oc-reveal">
         <div>
           <h2 class="oc-h2 oc-h2--left">Живая карта мира</h2>
           <p class="oc-sub oc-sub--left">Смотрите постройки игроков и рельеф прямо в браузере. Карта откроется поверх сайта, страницу покидать не нужно.</p>
@@ -97,12 +97,12 @@ const steps = [
     </section>
 
     <section class="oc-section oc-section--last">
-      <h2 class="oc-h2">Сообщество</h2>
+      <h2 class="oc-h2 oc-reveal">Сообщество</h2>
       <div class="oc-social">
-        <a class="oc-social__item" href="https://discord.orichill.net/" target="_blank" rel="noopener"><strong>Discord</strong><span>анкета, новости, общение</span></a>
-        <a class="oc-social__item" href="https://t.me/orichill" target="_blank" rel="noopener"><strong>Telegram</strong><span>новости проекта</span></a>
-        <a class="oc-social__item" href="https://vk.com/orichill" target="_blank" rel="noopener"><strong>ВКонтакте</strong><span>группа сервера</span></a>
-        <a class="oc-social__item" :href="withBase('/wiki/others/donate')"><strong>Поддержать</strong><span>помочь проекту</span></a>
+        <a class="oc-social__item oc-reveal" style="--d: 0" href="https://discord.orichill.net/" target="_blank" rel="noopener"><strong>Discord</strong><span>анкета, новости, общение</span></a>
+        <a class="oc-social__item oc-reveal" style="--d: 1" href="https://t.me/orichill" target="_blank" rel="noopener"><strong>Telegram</strong><span>новости проекта</span></a>
+        <a class="oc-social__item oc-reveal" style="--d: 2" href="https://vk.com/orichill" target="_blank" rel="noopener"><strong>ВКонтакте</strong><span>группа сервера</span></a>
+        <a class="oc-social__item oc-reveal" style="--d: 3" :href="withBase('/wiki/others/donate')"><strong>Поддержать</strong><span>помочь проекту</span></a>
       </div>
     </section>
   </div>
