@@ -2,9 +2,10 @@ import DefaultTheme from 'vitepress/theme'
 import type { Theme } from 'vitepress'
 import Layout from './Layout.vue'
 import HomePage from './components/HomePage.vue'
-import { installMapLinks } from './map'
+import { installFrameLinks } from './frames'
 import { installMotion } from './motion'
 import WikiHome from './components/WikiHome.vue'
+import StoreFrame from './components/StoreFrame.vue'
 import './wiki.css'
 import './icons.generated.css'
 import './site.css'
@@ -16,8 +17,9 @@ export default {
   enhanceApp({ app }) {
     app.component('HomePage', HomePage)
     app.component('WikiHome', WikiHome)
+    app.component('StoreFrame', StoreFrame)
     if (typeof window !== 'undefined') {
-      installMapLinks()
+      installFrameLinks()
       installMotion()
     }
   },

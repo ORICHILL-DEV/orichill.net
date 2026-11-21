@@ -1,12 +1,23 @@
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
-import { useRoute } from 'vitepress'
+import { useRoute, useRouter } from 'vitepress'
 import { nextTick, onMounted, watch } from 'vue'
 import mediumZoom, { type Zoom } from 'medium-zoom'
-import MapModal from './components/MapModal.vue'
+import FrameModal from './components/FrameModal.vue'
+import { isStorePath, openStore } from './frames'
 import { bindReveal, revealPage } from './motion'
 
 const route = useRoute()
+const router = useRouter()
+
+// Переход на /store из меню и ссылок открывает магазин окном поверх текущей страницы.
+// Прямой заход по адресу www.orichill.net/store показывает магазин встроенным в страницу.
+router.onBeforeRouteChange = (to) => {
+  if (isStorePath(to) && !isStorePath(location.href)) {
+    openStore()
+    return false
+  }
+}
 let zoom: Zoom | undefined
 
 function bindZoom() {
@@ -32,5 +43,5 @@ watch(
 
 <template>
   <DefaultTheme.Layout />
-  <MapModal />
+  <FrameModal />
 </template>
