@@ -1,7 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { withBase } from 'vitepress'
 import { openMap } from '../frames'
+import { startEmbers, startParallax } from '../embers'
+
+const hero = ref<HTMLElement>()
+const sparks = ref<HTMLCanvasElement>()
+const stops: Array<() => void> = []
+onMounted(() => {
+  if (hero.value && sparks.value) stops.push(startEmbers(sparks.value, hero.value), startParallax(hero.value))
+})
+onBeforeUnmount(() => stops.forEach((f) => f()))
 
 const IP = 'mc.orichill.net'
 const copied = ref(false)
@@ -38,9 +47,15 @@ const steps = [
 
 <template>
   <div class="oc-home">
-    <section class="oc-hero" :style="{ '--oc-cover': `url(${withBase('/img/cover.webp')})` }">
+    <section ref="hero" class="oc-hero" :style="{ '--oc-cover': `url(${withBase('/img/cover.webp')})` }">
+      <canvas ref="sparks" class="oc-hero__sparks" aria-hidden="true" />
       <div class="oc-hero__inner">
-        <img class="oc-hero__logo" :src="withBase('/img/logo.png')" alt="" width="112" height="112" />
+        <div class="oc-emblem" aria-hidden="true">
+          <span class="oc-emblem__aura" />
+          <span class="oc-emblem__ring oc-emblem__ring--a" />
+          <span class="oc-emblem__ring oc-emblem__ring--b" />
+          <img class="oc-hero__logo" :src="withBase('/img/logo.png')" alt="" width="112" height="112" />
+        </div>
         <h1 class="oc-hero__title"><span class="oc-brand-text">ORICHILL</span></h1>
         <p class="oc-hero__lead">
           Хардкорное ванильное выживание с PvE, RPG и полу-RP. Мир, где каждый шаг имеет значение,
