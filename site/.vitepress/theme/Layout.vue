@@ -4,7 +4,7 @@ import { useRoute } from 'vitepress'
 import { nextTick, onMounted, watch } from 'vue'
 import mediumZoom, { type Zoom } from 'medium-zoom'
 import MapModal from './components/MapModal.vue'
-import { revealPage } from './motion'
+import { bindReveal, revealPage } from './motion'
 
 const route = useRoute()
 let zoom: Zoom | undefined
@@ -15,13 +15,17 @@ function bindZoom() {
   zoom.attach('.vp-doc img:not(.no-zoom)')
 }
 
-onMounted(bindZoom)
+onMounted(() => {
+  bindZoom()
+  bindReveal()
+})
 watch(
   () => route.path,
   async () => {
     await nextTick()
     revealPage()
     bindZoom()
+    bindReveal()
   },
 )
 </script>

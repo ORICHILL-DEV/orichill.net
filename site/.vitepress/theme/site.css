@@ -60,7 +60,7 @@ html.oc-map-lock { overflow: hidden; }
   letter-spacing: 0.04em;
   filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.45));
 }
-.oc-hero__title .oc-brand-text { --oc-brand-gradient: linear-gradient(100deg, #9a5cff 0%, #b48bff 22%, #d6c6ff 50%, #f4f0ff 78%, #ffffff 100%); }
+.oc-hero__title .oc-brand-text { --oc-brand-gradient: var(--oc-brand-light); }
 .oc-hero__lead {
   margin: 18px auto 0;
   max-width: 620px;
@@ -257,25 +257,149 @@ html.oc-map-lock { overflow: hidden; }
 a[href^="https://map.orichill.net"] .vpi-arrow-up-right,
 a[href^="https://map.orichill.net"]::after { display: none !important; }
 
-/* Название ORICHILL: плавный градиент вместо резкого «ORI | CHILL» */
+/* ===== Название ORICHILL: непрерывное переливание =====
+   Градиент периодичен (два одинаковых цикла на 200% ширины), поэтому сдвиг на 100%
+   возвращает картинку в исходный вид и цикл идёт без рывка. */
+:root {
+  --oc-brand-dark: linear-gradient(90deg,
+    #6000d4 0%, #8a3cf0 12.5%, #c9a8ff 25%, #8a3cf0 37.5%, #6000d4 50%,
+    #8a3cf0 62.5%, #c9a8ff 75%, #8a3cf0 87.5%, #6000d4 100%);
+  --oc-brand-light: linear-gradient(90deg,
+    #8a4dff 0%, #c4a6ff 12.5%, #ffffff 25%, #c4a6ff 37.5%, #8a4dff 50%,
+    #c4a6ff 62.5%, #ffffff 75%, #c4a6ff 87.5%, #8a4dff 100%);
+}
 .oc-brand-text {
-  --oc-brand-gradient: linear-gradient(100deg, #6000d4 0%, #7a2be0 25%, #9b6bf0 50%, #4a4458 85%, #2f2b3a 100%);
-  background: var(--oc-brand-gradient);
+  --oc-brand-gradient: var(--oc-brand-dark);
+  display: inline-block;
+  background-image: var(--oc-brand-gradient);
   background-size: 200% 100%;
+  background-repeat: repeat-x;
   background-position: 0% 50%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: oc-brand-shift 8s ease-in-out infinite alternate;
+  animation: oc-brand-flow 5s linear infinite;
 }
-.dark .oc-brand-text {
-  --oc-brand-gradient: linear-gradient(100deg, #9a5cff 0%, #b48bff 22%, #d6c6ff 50%, #f4f0ff 78%, #ffffff 100%);
+.dark .oc-brand-text { --oc-brand-gradient: var(--oc-brand-light); }
+@keyframes oc-brand-flow {
+  from { background-position: 100% 50%; }
+  to { background-position: 0% 50%; }
 }
-@keyframes oc-brand-shift {
-  from { background-position: 0% 50%; }
-  to { background-position: 35% 50%; }
+
+/* ===== Анимации главной ===== */
+@keyframes oc-rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes oc-pop-in { from { opacity: 0; transform: scale(0.82) translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes oc-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes oc-cover-drift { from { transform: scale(1.06) translate3d(0, 0, 0); } to { transform: scale(1.14) translate3d(-1.5%, -1%, 0); } }
+@keyframes oc-glow { 0%, 100% { box-shadow: 0 6px 20px rgba(96, 0, 212, 0.35); } 50% { box-shadow: 0 8px 34px rgba(138, 60, 240, 0.65); } }
+@keyframes oc-shine { from { transform: translateX(-120%) skewX(-20deg); } to { transform: translateX(260%) skewX(-20deg); } }
+@keyframes oc-copied { 0% { transform: scale(1); } 40% { transform: scale(1.06); } 100% { transform: scale(1); } }
+@keyframes oc-wiggle { 0%, 100% { transform: none; } 30% { transform: translateY(-4px) scale(1.15) rotate(-8deg); } 60% { transform: translateY(0) scale(1.1) rotate(6deg); } }
+
+/* Появление первого экрана */
+.oc-hero::before { animation: oc-cover-drift 26s ease-in-out infinite alternate; }
+.oc-hero__logo { animation: oc-pop-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both, oc-float 6s ease-in-out 0.8s infinite; }
+.oc-hero__title { animation: oc-rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
+.oc-hero__lead { animation: oc-rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both; }
+.oc-ip { animation: oc-rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.34s both; }
+.oc-hero__actions { animation: oc-rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.46s both; }
+
+/* Кнопки: подъём, блик, нажатие */
+.oc-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s;
 }
+.oc-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  z-index: -1;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
+}
+.oc-btn:hover { transform: translateY(-3px); }
+.oc-btn:hover::after { animation: oc-shine 0.75s ease; }
+.oc-btn:active { transform: translateY(0) scale(0.96); transition-duration: 0.08s; }
+.oc-btn--brand { animation: oc-glow 3.2s ease-in-out infinite; }
+.oc-btn--brand:hover { box-shadow: 0 10px 34px rgba(138, 60, 240, 0.7); }
+.oc-btn--ghost:hover { background: rgba(255, 255, 255, 0.16); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); }
+.oc-band .oc-btn--ghost:hover, .oc-section .oc-btn--ghost:hover { box-shadow: none; }
+
+/* Кнопка IP */
+.oc-ip__btn { transition: border-color 0.25s, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s, background 0.25s; }
+.oc-ip__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(102, 205, 170, 0.25); }
+.oc-ip__btn:active { transform: scale(0.97); }
+.oc-ip__btn.is-copied { border-color: var(--oc-mint); animation: oc-copied 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+.oc-ip__label { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
+.oc-ip__btn:hover .oc-ip__label { transform: scale(1.08); }
+.oc-ip__hint { transition: color 0.25s; }
+.oc-ip__btn.is-copied .oc-ip__hint { color: var(--oc-mint); }
+
+/* Карточки, шаги, соцсети */
+.oc-card, .oc-step, .oc-social__item {
+  transition: border-color 0.3s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s, background 0.3s;
+}
+.oc-card:hover, .oc-step:hover, .oc-social__item:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(96, 0, 212, 0.16);
+}
+.oc-card__icon { display: inline-block; }
+.oc-card:hover .oc-card__icon { animation: oc-wiggle 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.oc-card__title { transition: color 0.25s; }
+.oc-card:hover .oc-card__title { color: var(--vp-c-brand-1); }
+.oc-step__n { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s, color 0.3s; }
+.oc-step:hover .oc-step__n { transform: scale(1.12) rotate(-6deg); background: var(--vp-c-brand-1); color: #fff; }
+.oc-step__cta { display: inline-block; transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
+.oc-step__cta:hover { transform: translateX(4px); text-decoration: none; }
+.oc-social__item strong { transition: color 0.25s; }
+.oc-social__item:hover strong { color: var(--vp-c-brand-1); }
+.oc-band { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s; }
+.oc-band:hover { box-shadow: 0 18px 48px rgba(96, 0, 212, 0.18); }
+
+/* Появление блоков при прокрутке (класс html.oc-reveal-on ставит скрипт, без JS всё видно сразу) */
+html.oc-reveal-on .oc-reveal { opacity: 0; translate: 0 26px; }
+html.oc-reveal-on .oc-reveal.oc-in {
+  opacity: 1;
+  translate: 0 0;
+  /* translate отдельно от transform, чтобы подъём при наведении продолжал работать */
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--d, 0) * 80ms),
+    translate 0.7s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--d, 0) * 80ms),
+    border-color 0.3s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s, background 0.3s;
+}
+
+/* Верхнее меню и соцсети в шапке */
+.VPNavBarMenuLink { position: relative; }
+.VPNavBarMenuLink::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--vp-c-brand-1);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.VPNavBarMenuLink:hover::after, .VPNavBarMenuLink.active::after { transform: scaleX(1); }
+.VPSocialLink { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s; }
+.VPSocialLink:hover { transform: translateY(-2px) scale(1.12); }
+.VPNavBarTitle .logo { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.VPNavBarTitle:hover .logo { transform: rotate(-8deg) scale(1.08); }
+
 @media (prefers-reduced-motion: reduce) {
-  .oc-brand-text { animation: none; }
+  .oc-brand-text, .oc-hero::before, .oc-hero__logo, .oc-hero__title, .oc-hero__lead, .oc-ip, .oc-hero__actions,
+  .oc-btn, .oc-btn::after, .oc-ip__btn, .oc-card__icon { animation: none !important; }
+  .oc-btn, .oc-card, .oc-step, .oc-social__item, .oc-ip__btn, .oc-band, .oc-step__n, .VPNavBarMenuLink::after,
+  .VPSocialLink, .VPNavBarTitle .logo { transition: none !important; }
+  .oc-btn:hover, .oc-card:hover, .oc-step:hover, .oc-social__item:hover, .oc-ip__btn:hover { transform: none; }
+  html.oc-reveal-on .oc-reveal { opacity: 1; translate: none; }
 }

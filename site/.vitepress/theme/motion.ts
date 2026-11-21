@@ -109,6 +109,32 @@ export function revealPage() {
   )
 }
 
+/* ---------- Появление блоков при прокрутке ---------- */
+
+let revealObserver: IntersectionObserver | undefined
+
+export function bindReveal() {
+  if (typeof window === 'undefined') return
+  const els = document.querySelectorAll<HTMLElement>('.oc-reveal:not(.oc-in)')
+  if (reduced() || !('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('oc-in'))
+    return
+  }
+  document.documentElement.classList.add('oc-reveal-on')
+  revealObserver ??= new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue
+        const el = e.target as HTMLElement
+        el.classList.add('oc-in')
+        revealObserver!.unobserve(el)
+      }
+    },
+    { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
+  )
+  els.forEach((el) => revealObserver!.observe(el))
+}
+
 export function installMotion() {
   watchSidebar()
   watchDetails()
