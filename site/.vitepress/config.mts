@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import footnote from 'markdown-it-footnote'
-import sidebar from './sidebar.json'
+import sidebar from './sidebar'
+import { withIcon as i } from './icons'
 
 const SITE = 'https://www.orichill.net'
 
@@ -33,12 +34,12 @@ export default defineConfig({
     logo: '/img/logo.png',
     siteTitle: 'ORICHILL',
     nav: [
-      { text: 'Главная', link: '/' },
-      { text: 'Вики', link: '/wiki/', activeMatch: '^/wiki/' },
-      { text: 'Правила', link: '/wiki/main/rules' },
+      { text: i('House', 'Главная'), link: '/' },
+      { text: i('BookOpen', 'Вики'), link: '/wiki/', activeMatch: '^/wiki/' },
+      { text: i('ScrollText', 'Правила'), link: '/wiki/main/rules' },
       // ссылка на карту перехватывается темой и открывает окно поверх страницы
-      { text: 'Карта', link: 'https://map.orichill.net/', target: '_self' },
-      { text: 'Магазин', link: 'https://store.orichill.net/' },
+      { text: i('Map', 'Карта'), link: 'https://map.orichill.net/', target: '_self' },
+      { text: i('ShoppingBag', 'Магазин'), link: 'https://store.orichill.net/' },
     ],
     sidebar,
     socialLinks: [

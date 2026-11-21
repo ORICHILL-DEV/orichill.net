@@ -16,11 +16,16 @@ site/
   public/                   картинки (assets/wiki, img), CNAME
   .vitepress/
     config.mts              меню, поиск, подвал
-    sidebar.json            меню слева для /wiki/ и /legal/
+    sidebar.ts              меню слева для /wiki/ и /legal/ (с иконками)
+    icons.ts                иконки Lucide (https://lucide.dev) для меню
     theme/
       components/HomePage.vue   главная
       components/MapModal.vue   окно с картой
+      components/WikiHome.vue   главная вики (/wiki/)
       map.ts                    перехват ссылок на карту (#map)
+      motion.ts                 плавное раскрытие меню и «Подробнее», появление страниц
+      wiki-theme.css            оформление вики
+      icons.generated.css       иконки для подсказок (node scripts/gen-icon-css.mjs)
       site.css / wiki.css       оформление
 ```
 
@@ -29,7 +34,7 @@ site/
 
 ## Как править вики
 
-- Страницы: `site/wiki/**/*.md`. Меню слева: `site/.vitepress/sidebar.json`.
+- Страницы: `site/wiki/**/*.md`. Меню слева: `site/.vitepress/sidebar.ts`, иконка задаётся именем из [lucide.dev](https://lucide.dev/icons), например `i('Swords', 'Навыки')`.
 - Картинки: `site/public/assets/wiki/`, в тексте `/assets/wiki/имя.png`.
 - Подсказки: `::: info`, `::: tip`, `::: warning`, `::: danger`, закрываются строкой `:::`.
 - Цветной текст: `<span class="oc-c-primary">текст</span>` (`primary`, `success`, `warning`, `danger`, `info`, `tint`), фон `oc-bg-*`.
