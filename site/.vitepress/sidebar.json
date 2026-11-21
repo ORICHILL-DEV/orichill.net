@@ -1,0 +1,196 @@
+{
+  "/wiki/": [
+    {
+      "text": "Добро пожаловать",
+      "link": "/wiki/"
+    },
+    {
+      "text": "Основное",
+      "items": [
+        {
+          "text": "Информация",
+          "link": "/wiki/main/info"
+        },
+        {
+          "text": "Общие Правила",
+          "link": "/wiki/main/rules"
+        },
+        {
+          "text": "Команды",
+          "link": "/wiki/main/all-commands"
+        },
+        {
+          "text": "Часто задаваемые вопросы (FAQ)",
+          "link": "/wiki/main/faq"
+        }
+      ],
+      "collapsed": false
+    },
+    {
+      "text": "Игровые механики",
+      "items": [
+        {
+          "text": "Механики",
+          "link": "/wiki/mechanics/",
+          "items": [
+            {
+              "text": "Защита приватизированной территории",
+              "link": "/wiki/mechanics/protection-private-territory-docs"
+            },
+            {
+              "text": "Навыки",
+              "link": "/wiki/mechanics/skills"
+            },
+            {
+              "text": "Ранги",
+              "link": "/wiki/mechanics/ranks"
+            },
+            {
+              "text": "Привилегии",
+              "link": "/wiki/mechanics/group"
+            },
+            {
+              "text": "Кастомные Зачарования",
+              "link": "/wiki/mechanics/custom-enchants"
+            },
+            {
+              "text": "Кастомные Крафты",
+              "link": "/wiki/mechanics/custom-crafts"
+            },
+            {
+              "text": "Кастомные Мобы Эндер Мира",
+              "link": "/wiki/mechanics/cmem"
+            },
+            {
+              "text": "Защита ЛВ",
+              "link": "/wiki/mechanics/protect-chest"
+            },
+            {
+              "text": "Квесты",
+              "link": "/wiki/mechanics/kvesty"
+            },
+            {
+              "text": "Сезоны и Температура",
+              "link": "/wiki/mechanics/seasons-and-temperature"
+            },
+            {
+              "text": "Доп. Предметы под Шаблоны",
+              "link": "/wiki/mechanics/dop.-predmety-pod-shablony"
+            },
+            {
+              "text": "Жажда",
+              "link": "/wiki/mechanics/zhazhda"
+            },
+            {
+              "text": "Новые Данджи",
+              "link": "/wiki/mechanics/new-dungeons"
+            },
+            {
+              "text": "Доп. Предметы под Шаблоны (луки, арбалеты)",
+              "link": "/wiki/mechanics/dop.-predmety-pod-shablony-1"
+            },
+            {
+              "text": "Пивоварня",
+              "link": "/wiki/mechanics/bear"
+            },
+            {
+              "text": "Декоративные Модели",
+              "link": "/wiki/mechanics/dekorate-model"
+            },
+            {
+              "text": "Интерактивные Таблички",
+              "link": "/wiki/mechanics/znaks"
+            },
+            {
+              "text": "Новая Готовка",
+              "link": "/wiki/mechanics/novaya-gotovka"
+            },
+            {
+              "text": "Чаты",
+              "link": "/wiki/mechanics/chat"
+            },
+            {
+              "text": "SimpleVoiceChat",
+              "link": "/wiki/mechanics/voice-chat"
+            },
+            {
+              "text": "Emotecraft",
+              "link": "/wiki/mechanics/emotecraft_installing"
+            },
+            {
+              "text": "Изменённый баланс торговли с пиглинами",
+              "link": "/wiki/mechanics/izmenyonnyi-balans-torgovli-s-piglinami"
+            }
+          ],
+          "collapsed": true
+        }
+      ],
+      "collapsed": false
+    },
+    {
+      "text": "Role play",
+      "items": [
+        {
+          "text": "Общая информация про RP",
+          "link": "/wiki/rp/info"
+        }
+      ],
+      "collapsed": false
+    },
+    {
+      "text": "Прочее",
+      "items": [
+        {
+          "text": "Поддержка Проекта",
+          "link": "/wiki/others/donate"
+        },
+        {
+          "text": "Контентмейкеры",
+          "link": "/wiki/others/content-maker-info"
+        },
+        {
+          "text": "Адаптация механизмов",
+          "link": "/wiki/others/adaptaciya-mekhanizmov"
+        },
+        {
+          "text": "Подключение c Raknetify",
+          "link": "/wiki/others/raknetify"
+        },
+        {
+          "text": "Обход блокировки Discord",
+          "link": "/wiki/others/discord-unblock"
+        }
+      ],
+      "collapsed": false
+    },
+    {
+      "text": "Документы",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Пользовательское Соглашение",
+          "link": "/legal/user_agreement"
+        },
+        {
+          "text": "Политика Обработки Персональных Данных",
+          "link": "/legal/privacy_policy"
+        }
+      ]
+    }
+  ],
+  "/legal/": [
+    {
+      "text": "Документы",
+      "items": [
+        {
+          "text": "Пользовательское Соглашение",
+          "link": "/legal/user_agreement"
+        },
+        {
+          "text": "Политика Обработки Персональных Данных",
+          "link": "/legal/privacy_policy"
+        }
+      ]
+    }
+  ]
+}

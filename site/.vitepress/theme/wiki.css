@@ -1,0 +1,38 @@
+/* Цвета ORICHILL и замена GitBook-разметки <mark style="color:$..."> */
+:root {
+  --vp-c-brand-1: #6000d4;
+  --vp-c-brand-2: #7a2be0;
+  --vp-c-brand-3: #66cdaa;
+  --oc-primary: #6000d4;
+  --oc-success: #1f9d55;
+  --oc-warning: #c27c0e;
+  --oc-danger: #d43c3c;
+  --oc-info: #2f6fd1;
+  --oc-tint: #2a9d8f;
+}
+.dark {
+  --vp-c-brand-1: #a874ff;
+  --vp-c-brand-2: #9157f5;
+  --oc-primary: #a874ff;
+  --oc-success: #4cd38a;
+  --oc-warning: #f0b44c;
+  --oc-danger: #ff6b6b;
+  --oc-info: #6ea8ff;
+  --oc-tint: #66cdaa;
+}
+.oc-c-primary { color: var(--oc-primary); }
+.oc-c-success, .oc-c-green { color: var(--oc-success); }
+.oc-c-warning, .oc-c-orange, .oc-c-yellow { color: var(--oc-warning); }
+.oc-c-danger, .oc-c-red { color: var(--oc-danger); }
+.oc-c-info, .oc-c-blue { color: var(--oc-info); }
+.oc-c-tint { color: var(--oc-tint); }
+.oc-c-purple { color: var(--oc-primary); }
+[class^='oc-bg-'] { padding: 0 4px; border-radius: 4px; color: #fff; }
+.oc-bg-primary, .oc-bg-purple { background: var(--oc-primary); }
+.oc-bg-success { background: var(--oc-success); }
+.oc-bg-blue { background: var(--oc-info); }
+.oc-bg-red { background: var(--oc-danger); }
+.oc-bg-yellow { background: var(--oc-warning); }
+figure { margin: 16px 0; text-align: center; }
+figure img { display: inline-block; border-radius: 8px; }
+figcaption { font-size: 0.9em; color: var(--vp-c-text-2); }
