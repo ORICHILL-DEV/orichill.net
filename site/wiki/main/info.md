@@ -74,7 +74,7 @@ _`^Для этого, нужно зайти на сервер Discord и отк�
 
 ## <span class="oc-c-primary">**Полезные ссылки**</span>
 
-* <span class="oc-bg-yellow">**`Магазин`**</span> - [**\*КЛИК**](https://store.orichill.net/) (_**👈 жмяк)**_
+* <span class="oc-bg-yellow">**`Магазин`**</span> - [**\*КЛИК**](/store/) (_**👈 жмяк)**_
 * <span class="oc-bg-blue">**`VK-Группа`**</span> - [**\*КЛИК**](https://vk.com/orichill) (_**👈 жмяк)**_
 * <span class="oc-bg-purple">**`Сервер Discord`**</span> - [**\*КЛИК**](https://discord.orichill.net/) (_**👈 жмяк)**_
 * <span class="oc-bg-success">**`Онлайн-Карта`**</span> - [**\*КЛИК**](https://map.orichill.net/) (_**👈 жмяк)**_
