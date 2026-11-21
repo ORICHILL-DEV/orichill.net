@@ -58,9 +58,9 @@ html.oc-map-lock { overflow: hidden; }
   line-height: 1;
   font-weight: 900;
   letter-spacing: 0.04em;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.45));
 }
-.oc-hero__title .oc-accent { color: #b48bff; }
+.oc-hero__title .oc-brand-text { --oc-brand-gradient: linear-gradient(100deg, #9a5cff 0%, #b48bff 22%, #d6c6ff 50%, #f4f0ff 78%, #ffffff 100%); }
 .oc-hero__lead {
   margin: 18px auto 0;
   max-width: 620px;
@@ -256,3 +256,26 @@ html.oc-map-lock { overflow: hidden; }
 /* Карта открывается окном, поэтому значок внешней ссылки у неё не нужен */
 a[href^="https://map.orichill.net"] .vpi-arrow-up-right,
 a[href^="https://map.orichill.net"]::after { display: none !important; }
+
+/* Название ORICHILL: плавный градиент вместо резкого «ORI | CHILL» */
+.oc-brand-text {
+  --oc-brand-gradient: linear-gradient(100deg, #6000d4 0%, #7a2be0 25%, #9b6bf0 50%, #4a4458 85%, #2f2b3a 100%);
+  background: var(--oc-brand-gradient);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: oc-brand-shift 8s ease-in-out infinite alternate;
+}
+.dark .oc-brand-text {
+  --oc-brand-gradient: linear-gradient(100deg, #9a5cff 0%, #b48bff 22%, #d6c6ff 50%, #f4f0ff 78%, #ffffff 100%);
+}
+@keyframes oc-brand-shift {
+  from { background-position: 0% 50%; }
+  to { background-position: 35% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oc-brand-text { animation: none; }
+}

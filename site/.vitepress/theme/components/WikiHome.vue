@@ -23,7 +23,7 @@ const sections = [
   <div class="oc-wh">
     <div class="oc-wh__hero">
       <span class="oc-wh__badge" v-html="icon('BookOpen') + '<span>Вики сервера</span>'" />
-      <h1 class="oc-wh__title">Всё об <span class="oc-accent">ORI</span>CHILL</h1>
+      <h1 class="oc-wh__title">Всё об <span class="oc-brand-text">ORICHILL</span></h1>
       <p class="oc-wh__lead">Правила, команды и каждая механика сервера. Найдите нужное через поиск или выберите раздел ниже.</p>
       <button class="oc-wh__search" type="button" @click="openSearch">
         <span class="oc-wh__search-ic" v-html="icon('Search')" />
