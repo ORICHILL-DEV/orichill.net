@@ -56,4 +56,4 @@ Push в `main` запускает `.github/workflows/deploy.yml`: сборка �
    Для `orichill.net` без www: A-записи `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`; GitHub сам перенаправит на www.
 3. Settings → Pages → Custom domain: `www.orichill.net`, затем **Enforce HTTPS**. Файл `site/public/CNAME` уже есть.
 4. Старая вики: в Cloudflare правило перенаправления `wiki.orichill.net/*` → `https://www.orichill.net/wiki/${1}` (301).
-   Адреса страниц сохранены, кроме `mechanics/mechanics/*` → `wiki/mechanics/*` и `others/rkn-pidorasi` → `wiki/others/discord-unblock`.
+   Адреса страниц сохранены, кроме `mechanics/mechanics/*` → `wiki/mechanics/*`.
