@@ -49,8 +49,8 @@ export default defineConfig({
     ],
     footer: {
       message:
-        '<a href="/legal/user_agreement">Пользовательское соглашение</a> · <a href="/legal/privacy_policy">Политика обработки персональных данных</a> · <a href="/legal/authorities">Для государственных органов</a><br>Не является официальным продуктом Minecraft. Не одобрено и не связано с Mojang или Microsoft.',
-      copyright: '© ORICHILL',
+        '<a href="/legal/user_agreement">Пользовательское соглашение</a> · <a href="/legal/privacy_policy">Политика обработки персональных данных</a> · <a href="/legal/authorities">Для государственных органов</a><br>Не является официальным продуктом Minecraft. Не связан с Mojang AB и Microsoft и не одобрен ими.',
+      copyright: '© 2023–2026 ORICHILL. Все права защищены.',
     },
     search: {
       provider: 'local',
