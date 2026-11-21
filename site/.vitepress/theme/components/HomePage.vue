@@ -40,7 +40,7 @@ const features = [
 
 const steps = [
   { n: 1, title: 'Пройдите анкету', text: 'Зайдите в наш Discord и откройте анкету. Администрация проверит её и пустит вас на основной сервер.', cta: 'Открыть Discord', href: 'https://discord.orichill.net/' },
-  { n: 2, title: 'Подготовьте клиент', text: 'Подойдёт любой клиент от 1.21.11 до 26.3, лицензия или пиратка. Для максимального комфорта есть наша сборка ORICHILL Client.', cta: 'ORICHILL Client на Modrinth', href: 'https://modrinth.com/modpack/orichill-client' },
+  { n: 2, title: 'Подготовьте клиент', text: 'Подойдёт клиент Java Edition от 1.21.11 до 26.3: вход с аккаунтом Microsoft или по паролю сервера. Для максимального комфорта есть наша сборка ORICHILL Client.', cta: 'ORICHILL Client на Modrinth', href: 'https://modrinth.com/modpack/orichill-client' },
   { n: 3, title: 'Заходите в игру', text: 'Добавьте сервер mc.orichill.net и загляните в вики: правила, команды и все механики собраны там.', cta: 'Читать вики', href: '/wiki/main/info' },
 ]
 </script>
@@ -67,7 +67,7 @@ const steps = [
             <code class="oc-ip__addr">{{ IP }}</code>
             <span class="oc-ip__hint" aria-live="polite">{{ copied ? 'Скопировано' : 'Копировать' }}</span>
           </button>
-          <span class="oc-ip__ver">Java 1.21.11 – 26.3 · лицензия и пиратка</span>
+          <span class="oc-ip__ver">Java 1.21.11 – 26.3 · 14+</span>
         </div>
         <div class="oc-hero__actions">
           <a class="oc-btn oc-btn--brand" href="#start">Начать играть</a>
