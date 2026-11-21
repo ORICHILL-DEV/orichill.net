@@ -537,22 +537,26 @@ html .VPNavBarSearch .DocSearch-Button .DocSearch-Button-Key {
   html .VPNavBarSearch .DocSearch-Button { width: 38px; padding: 0; justify-content: center; }
 }
 
-/* ===== Окно поиска ===== */
-html .VPLocalSearchBox .backdrop { background: rgba(8, 4, 18, 0.55); backdrop-filter: blur(6px); }
+/* ===== Поиск: боковая панель слева ===== */
+html .VPLocalSearchBox { justify-content: flex-start; }
+html .VPLocalSearchBox .backdrop { background: rgba(8, 4, 18, 0.45); backdrop-filter: blur(4px); animation: oc-fade-in 0.5s ease; }
 html .VPLocalSearchBox .shell {
-  margin: 12vh auto 64px;
-  width: min(100vw - 32px, 680px);
-  max-height: min(76vh, 720px);
-  padding: 14px;
-  border-radius: 18px;
-  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 22%, var(--vp-c-divider));
-  background: color-mix(in srgb, var(--vp-c-bg) 94%, transparent);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-  animation: oc-search-in 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  margin: 0;
+  width: min(440px, 100vw);
+  height: 100vh;
+  max-height: none;
+  padding: 18px 16px 14px;
+  border-radius: 0 20px 20px 0;
+  border: 0;
+  border-right: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 22%, var(--vp-c-divider));
+  background: color-mix(in srgb, var(--vp-c-bg) 96%, transparent);
+  box-shadow: 24px 0 60px rgba(0, 0, 0, 0.35);
+  animation: oc-search-in 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
-@keyframes oc-search-in { from { opacity: 0; transform: translateY(-8px) scale(0.985); } to { opacity: 1; transform: none; } }
+@keyframes oc-search-in { from { transform: translateX(-100%); } to { transform: none; } }
+@keyframes oc-fade-in { from { opacity: 0; } to { opacity: 1; } }
 html .VPLocalSearchBox .search-bar {
-  height: 50px;
+  height: 48px;
   border-radius: 12px;
   border: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft);
@@ -562,11 +566,15 @@ html .VPLocalSearchBox .search-bar:focus-within {
   border-color: color-mix(in srgb, var(--vp-c-brand-1) 60%, transparent);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--vp-c-brand-1) 12%, transparent);
 }
-html .VPLocalSearchBox .search-input { font-size: 16px; }
+html .VPLocalSearchBox .search-input { font-size: 15px; }
+html .VPLocalSearchBox .results { overflow-y: auto; overscroll-behavior: contain; }
+html .VPLocalSearchBox a, html .VPLocalSearchBox a * { text-decoration: none !important; }
 html .VPLocalSearchBox .result { border-radius: 12px; transition: border-color 0.4s ease, background 0.4s ease; }
 html .VPLocalSearchBox .result.selected { border-color: color-mix(in srgb, var(--vp-c-brand-1) 45%, transparent); }
+html .VPLocalSearchBox .titles { font-size: 14px; }
+html .VPLocalSearchBox .search-keyboard-shortcuts { margin-top: auto; }
 html .VPLocalSearchBox .search-keyboard-shortcuts kbd { border: 1px solid var(--vp-c-divider); border-radius: 6px; }
 @media (max-width: 767px) {
-  html .VPLocalSearchBox .shell { margin: 0; width: 100vw; max-height: none; height: 100vh; border-radius: 0; border: 0; }
+  html .VPLocalSearchBox .shell { width: 100vw; border-radius: 0; border-right: 0; }
 }
-@media (prefers-reduced-motion: reduce) { html .VPLocalSearchBox .shell { animation: none; } }
+@media (prefers-reduced-motion: reduce) { html .VPLocalSearchBox .shell, html .VPLocalSearchBox .backdrop { animation: none; } }
