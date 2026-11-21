@@ -4,6 +4,8 @@ import { useRoute, useRouter } from 'vitepress'
 import { nextTick, onMounted, watch } from 'vue'
 import mediumZoom, { type Zoom } from 'medium-zoom'
 import FrameModal from './components/FrameModal.vue'
+import Toaster from './components/Toaster.vue'
+import { markCopyable } from './toast'
 import { isStorePath, openStore } from './frames'
 import { bindReveal, revealPage } from './motion'
 
@@ -29,6 +31,7 @@ function bindZoom() {
 onMounted(() => {
   bindZoom()
   bindReveal()
+  markCopyable()
 })
 watch(
   () => route.path,
@@ -37,6 +40,7 @@ watch(
     revealPage()
     bindZoom()
     bindReveal()
+    markCopyable()
   },
 )
 </script>
@@ -44,4 +48,5 @@ watch(
 <template>
   <DefaultTheme.Layout />
   <FrameModal />
+  <Toaster />
 </template>

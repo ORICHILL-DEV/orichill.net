@@ -4,6 +4,7 @@ import Layout from './Layout.vue'
 import HomePage from './components/HomePage.vue'
 import { installFrameLinks } from './frames'
 import { installMotion } from './motion'
+import { installToasts } from './toast'
 import WikiHome from './components/WikiHome.vue'
 import StoreFrame from './components/StoreFrame.vue'
 import './wiki.css'
@@ -21,6 +22,7 @@ export default {
     if (typeof window !== 'undefined') {
       installFrameLinks()
       installMotion()
+      installToasts()
     }
   },
 } satisfies Theme
