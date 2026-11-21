@@ -4,6 +4,7 @@ import { withIcon as i } from './icons'
 const legal: DefaultTheme.SidebarItem[] = [
   { text: i('Handshake', 'Пользовательское соглашение'), link: '/legal/user_agreement' },
   { text: i('ShieldCheck', 'Политика обработки персональных данных'), link: '/legal/privacy_policy' },
+  { text: i('Landmark', 'Для государственных органов'), link: '/legal/authorities' },
 ]
 
 const wiki: DefaultTheme.SidebarItem[] = [

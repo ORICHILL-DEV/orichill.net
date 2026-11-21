@@ -35,11 +35,11 @@ export default defineConfig({
     siteTitle: 'ORICHILL',
     nav: [
       { text: i('House', 'Главная'), link: '/' },
-      { text: i('BookOpen', 'Вики'), link: '/wiki/', activeMatch: '^/wiki/' },
-      { text: i('ScrollText', 'Правила'), link: '/wiki/main/rules' },
+      { text: i('BookOpen', 'Вики'), link: '/wiki/', activeMatch: '^/wiki/(?!main/rules)' },
+      { text: i('ScrollText', 'Правила'), link: '/wiki/main/rules', activeMatch: '^/wiki/main/rules' },
       // ссылка на карту перехватывается темой и открывает окно поверх страницы
       { text: i('Map', 'Карта'), link: 'https://map.orichill.net/', target: '_self' },
-      { text: i('ShoppingBag', 'Магазин'), link: 'https://store.orichill.net/' },
+      { text: i('ShoppingBag', 'Магазин'), link: '/store/', activeMatch: '^/store' },
     ],
     sidebar,
     socialLinks: [
@@ -49,7 +49,7 @@ export default defineConfig({
     ],
     footer: {
       message:
-        '<a href="/legal/user_agreement">Пользовательское соглашение</a> · <a href="/legal/privacy_policy">Политика обработки персональных данных</a><br>Не является официальным продуктом Minecraft. Не одобрено и не связано с Mojang или Microsoft.',
+        '<a href="/legal/user_agreement">Пользовательское соглашение</a> · <a href="/legal/privacy_policy">Политика обработки персональных данных</a> · <a href="/legal/authorities">Для государственных органов</a><br>Не является официальным продуктом Minecraft. Не одобрено и не связано с Mojang или Microsoft.',
       copyright: '© ORICHILL',
     },
     search: {
