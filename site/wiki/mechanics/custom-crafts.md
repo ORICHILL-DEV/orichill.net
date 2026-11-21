@@ -1,127 +1,73 @@
 ---
-description: ">-"
+description: Новые и изменённые рецепты крафта на сервере.
 ---
 
-# Кастомные Крафты
+# Кастомные крафты
 
-## <span class="oc-c-primary">Кастомные крафты</span>
+На сервере есть новые рецепты, а у некоторых ванильных изменён результат. Рядом с каждым рецептом указано, что с ним сделали:
 
-***
+- <Badge type="tip" text="новый" /> — рецепта нет в ванильной игре;
+- <Badge type="info" text="больше результата" /> — крафт даёт больше предметов;
+- <Badge type="warning" text="изменён" /> — изменены ингредиенты.
 
+## Редкие предметы
 
+### Элитры <Badge type="info" text="больше результата" />
 
-*   <kbd><span class="oc-c-primary">**Крафт Элитр**</span></kbd><kbd>**&#x20;**</kbd><kbd>**+**</kbd><kbd>**&#x20;**</kbd><kbd><span class="oc-c-primary">**стакание до 2-ух единиц:**</span></kbd> <br>
+Элитры складываются в стак до 2 штук. Энд у нас ограничен, и элитры достались бы не всем, поэтому мы добавили для них крафт.
 
-    <figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2822%29.png" alt=""><figcaption><p>увл. крафт</p></figcaption></figure>
+![Крафт элитр](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2822%29.png)
 
-<kbd><span class="oc-c-red">**Пояснение:**</span></kbd> Так как Эндер Мир ограничен, то Элитры могут достаться не всем, поэтому мы решили сделать их крафт, чтобы потом не было проблем. <br>
+### Панцирь шалкера <Badge type="info" text="больше результата" />
 
-***
+Та же история, что и с элитрами: панцирей должно хватать всем.
 
+![Крафт панциря шалкера](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2866%29.png)
 
+### Тотем бессмертия <Badge type="info" text="больше результата" />
 
-* <kbd><span class="oc-c-primary">**Крафт Панциря Шалкера:**</span></kbd>
+Тотемы складываются в стак до 2 штук. Призыватели не появляются заново в особняках, а рейды в деревнях отключены, поэтому без крафта тотемов хватило бы не всем.
 
-<figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2866%29.png" alt=""><figcaption><p>увл. крафт</p></figcaption></figure>
+![Крафт тотема бессмертия](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2865%29.png)
 
-<kbd><span class="oc-c-red">**Пояснение:**</span></kbd> Тут ситуация точно такая же, но уже как задумывалось.<br>
+## Незерит и булава
 
-***
+### Незеритовый слиток <Badge type="warning" text="изменён" />
 
+![Крафт незеритового слитка](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2828%29.png)
 
+### Незеритовый лом <Badge type="info" text="больше результата" />
 
-* <kbd><span class="oc-c-primary">**Крафт Тотемов**</span></kbd><kbd>**&#x20;**</kbd><kbd>**+**</kbd><kbd>**&#x20;**</kbd><kbd><span class="oc-c-primary">**стакание до 2-ух единиц:**</span></kbd>
+![Крафт незеритового лома](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2831%29.png)
 
-<figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2865%29.png" alt=""><figcaption><p>увл. крафт</p></figcaption></figure>
+### Навершие булавы <Badge type="info" text="больше результата" />
 
-<kbd><span class="oc-c-red">**Пояснение:**</span></kbd> Так как Призыватели не респавнятся в особняках, а также из-за отключения рейдов в деревнях, мы создали крафт тотемов, чтобы всем хватило.<br>
+![Крафт навершия булавы](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2811%29.png)
 
-***
+## Кольчужная броня
 
+### Кольчужный шлем <Badge type="tip" text="новый" />
 
+![Крафт: кольчужный шлем](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2813%29.png)
 
-*   <kbd><span class="oc-c-primary">**Крафт Незер Слитка:**</span></kbd><br>
+### Кольчужная кираса <Badge type="tip" text="новый" />
 
-    <figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2828%29.png" alt=""><figcaption><p>изм. крафт</p></figcaption></figure>
+![Крафт: кольчужная кираса](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2814%29.png)
 
+### Кольчужные поножи <Badge type="tip" text="новый" />
 
+![Крафт: кольчужные поножи](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2815%29.png)
 
-***
+### Кольчужные ботинки <Badge type="tip" text="новый" />
 
+![Крафт: кольчужные ботинки](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2816%29.png)
 
+## Прочее
 
-*   <kbd><span class="oc-c-primary">**Крафт Незеритового Лома:**</span></kbd><br>
+### Палочка отладки <Badge type="tip" text="новый" />
 
-    <figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2831%29.png" alt=""><figcaption><p>увл. крафт</p></figcaption></figure>
+![Крафт: палочка отладки](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2810%29.png)
 
+### Книга рецептов <Badge type="tip" text="новый" />
 
-
-***
-
-
-
-*   <kbd><span class="oc-c-primary">**Крафт Навершие Булавы:**</span></kbd><br>
-
-    <figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2811%29.png" alt=""><figcaption><p>увл. крафт</p></figcaption></figure>
-
-
-
-***
-
-
-
-*   <kbd><span class="oc-c-primary">**Крафт Палочки Отладки:**</span></kbd><br>
-
-    <figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2810%29.png" alt=""><figcaption><p>созд. крафт</p></figcaption></figure>
-
-
-
-***
-
-
-
-*   <kbd><span class="oc-c-primary">**Крафт Книги Рецептов:**</span></kbd><br>
-
-    <figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%289%29.png" alt=""><figcaption><p>созд. крафт</p></figcaption></figure>
-
-
-
-***
-
-
-
-*   <kbd><span class="oc-c-primary">**Крафт Койф'а:**</span></kbd><br>
-
-    <figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2813%29.png" alt=""><figcaption><p>созд. крафт</p></figcaption></figure>
-
-
-
-***
-
-
-
-*   <kbd><span class="oc-c-primary">**Крафт Кольчужной Брони:**</span></kbd><br>
-
-    <figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2814%29.png" alt=""><figcaption><p>созд. крафт</p></figcaption></figure>
-
-
-
-***
-
-
-
-*   <kbd><span class="oc-c-primary">**Крафт Кольчужной Поножи:**</span></kbd><br>
-
-    <figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2815%29.png" alt=""><figcaption><p>созд. крафт</p></figcaption></figure>
-
-
-
-***
-
-
-
-* <kbd><span class="oc-c-primary">**Крафт Кольчужных Ботинок:**</span></kbd><br>
-
-<figure><img src="/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%2816%29.png" alt=""><figcaption><p>созд. крафт</p></figcaption></figure>
-
-
+![Крафт: книга рецептов](/assets/wiki/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%289%29.png)

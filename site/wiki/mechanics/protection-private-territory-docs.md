@@ -1,90 +1,52 @@
 ---
-description: ">-"
+description: Защита построек регионами WorldGuard — лимиты и флаги.
 ---
 
-# Защита приватизированной территории
+# Защита территории
 
-
-::: danger
-
-<kbd><span class="oc-c-red">**‼️ ВНИМАНИЕ ‼️**</span></kbd>\
-<kbd><span class="oc-c-red">↳</span></kbd> _**Мы только начали работу над интеграцией плагина&#x20;**<span class="oc-c-info">**`WorldGuard`**</span>**&#x20;в нашу экосистему/эргономику, а потому не весь&#x20;**<span class="oc-c-primary">**`WIKI`**</span>_ _**и сервер подготовлены к его использованию.**_\
-_**В рамках того, что у нас сервер находится в стадии&#x20;**<span class="oc-c-warning">**`DEV`**</span>**&#x20;- мы постепенно решим данную проблему.**_ \
-\
-**Следите за новостями 💕**
+::: warning Функция в разработке
+Мы только начали внедрять плагин **WorldGuard**, поэтому сервер и вики ещё не полностью к нему готовы. Сервер находится в стадии разработки, и мы постепенно всё доделаем. Следите за новостями 💜
 :::
 
-### <span class="oc-c-primary">**ИНФОРМАЦИЯ ПО ПЛАГИНУ И ЕГО ХАРАКТИРИСТИКА**</span>
+## Зачем это нужно
 
+Регионы защищают ваши **постройки** от посторонних, особенно от недоброжелательных новичков. Мы ввели их по опыту работы сервера с конца 2023 по октябрь 2025 года: игроки бывают разные, и добросовестным не должны мешать.
 
-::: info
-
-<kbd>**Если вкратце:**</kbd> _плагин мы используем, чтобы игроки смогли защитить свою территорию от несанкционированного использования третьими лицами (особенно от недобродушных новичков)._\
-<kbd>**^Примечание:**</kbd> _Создание регионов не помешает другим людям открывать сундуки/двери/люки, пользоваться вагонетками и т.п._ \
-\
-_Регионы были введены для защиты ваших строений, а для защиты всего вышеперечисленного используйте информацию из этого раздела -_ [→ protect-chest](protect-chest.md)\
-\
-_\*Введено это было по опыту работы сервера в период конца 2023 по октябрь 2025 года._ \
-_^Увы, но игроки бывают разные, поэтому, чтобы не мучить добродушных игроков - мы ввели данный функционал для защиты собственности._
+::: tip Сундуки и двери защищаются отдельно
+Регион не мешает другим открывать сундуки, двери и люки или пользоваться вагонетками. Чтобы закрыть их, используйте [защиту личных вещей](./protect-chest).
 :::
 
-### <span class="oc-c-primary">**Ваши ограничения использования команд в WorldGuard:**</span>
+## Лимиты
 
+Регионы можно создавать во всех мирах.
 
-::: tip
+| | Лимит |
+| --- | --- |
+| Регионов | до 7 |
+| Блоков в привате | до 2 000 000 |
+| Существ в каждом регионе | до 300 |
 
-<span class="oc-c-success">**Регионы можно создать во всех мирах**</span>
+::: info Нужно больше?
+Откройте тикет в нашем Discord и объясните, зачем вам больше регионов, блоков или существ.
 :::
 
-* Разрешается до <span class="oc-c-primary">**`7`**</span> регионов;
-* Количество блоков для привата - <span class="oc-c-primary">**`2 млн`**</span>;
-* До <span class="oc-c-primary">**`300`**</span> сущностей в каждом регионе.
+## Флаги региона
 
+Флаги у всех регионов одинаковые, изменить их нельзя.
 
-::: info
-
-Если вам вдруг понадобится больше - обращайтесь к Администрации сервера через открытие тикета на нашем сервере Discord. <br>
-
-<kbd><span class="oc-c-success">**^Рекомендуется**</span></kbd> объяснить причину, по которой вам понадобилось больше количества регионов/блоков привата/cущностей в регионе.
+::: details Список флагов
+| Разрешено | Запрещено |
+| --- | --- |
+| `use` | `lava-fire` |
+| `interact` | `invincible` |
+| `chest-access` | `vehicle-destroy` |
+| `pvp` | `vehicle-place` |
+| `ride` | `fire-spread` |
+| `sleep` | `enderdragon-block-damage` |
+| `use-anvil` | `pvp-protection` |
+| `use-dripleaf` | `item-frame-rotation` |
+| `damage-animals` | `entity-painting-destroy` |
+| `firework-damage` | `entity-item-frame-destroy` |
+| `respawn-anchors` | `tnt` |
+| `frosted-ice-form` | `godmode` |
 :::
-
-### <span class="oc-c-primary">**Стандартные флаги региона**</span>
-
-
-::: danger
-
-<kbd><span class="oc-c-red">**‼️ ВНИМАНИЕ ‼️**</span></kbd>\
-<kbd><span class="oc-c-red">↳</span></kbd> **Флаги региона не изменяемы (фиксированы)!**
-:::
-
-<details>
-
-<summary><kbd><span class="oc-c-primary"><strong>🚩 СПИСОК ФЛАГОВ</strong></span></kbd></summary>
-
-* <kbd>frosted-ice-form allow</kbd>
-* <kbd>lava-fire deny</kbd>
-* <kbd>invincible deny</kbd>
-* <kbd>use allow</kbd>
-* <kbd>interact allow</kbd>
-* <kbd>vehicle-destroy deny</kbd>
-* <kbd>use-dripleaf allow</kbd>
-* <kbd>chest-access allow</kbd>
-* <kbd>pvp allow</kbd>
-* <kbd>ride allow</kbd>
-* <kbd>firework-damage allow</kbd>
-* <kbd>fire-spread deny</kbd>
-* <kbd>enderdragon-block-damage deny</kbd>
-* <kbd>sleep allow</kbd>
-* <kbd>pvp-protection deny</kbd>
-* <kbd>vehicle-place deny</kbd>
-* <kbd>item-frame-rotation deny</kbd>
-* <kbd>damage-animals allow</kbd>
-* <kbd>entity-painting-destroy deny</kbd>
-* <kbd>tnt deny</kbd>
-* <kbd>entity-item-frame-destroy deny</kbd>
-* <kbd>use-anvil allow</kbd>
-* <kbd>respawn-anchors allow</kbd>
-* <kbd>godmode deny</kbd>
-
-</details>
-

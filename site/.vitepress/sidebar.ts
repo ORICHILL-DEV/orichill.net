@@ -85,7 +85,6 @@ const wiki: DefaultTheme.SidebarItem[] = [
       { text: i('Video', 'Контентмейкерам'), link: '/wiki/others/content-maker-info' },
       { text: i('Cpu', 'Адаптация механизмов'), link: '/wiki/others/adaptaciya-mekhanizmov' },
       { text: i('Wifi', 'Подключение с Raknetify'), link: '/wiki/others/raknetify' },
-      { text: i('ShieldOff', 'Обход блокировки Discord'), link: '/wiki/others/discord-unblock' },
     ],
   },
   { text: i('FileText', 'Документы'), collapsed: true, items: legal },

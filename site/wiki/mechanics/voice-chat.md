@@ -1,27 +1,26 @@
 ---
-description: ">-"
+description: Голосовой чат по близости с модом Simple Voice Chat.
 ---
 
-# SimpleVoiceChat
+# Голосовой чат
 
+На сервере работает голосовой чат по близости: вы слышите игроков, которые стоят рядом.
 
-::: warning
-
-<kbd><span class="oc-c-warning">**‼️ ВНИМАНИЕ ‼️**</span></kbd>\
-<kbd><span class="oc-c-warning">↳</span></kbd> <kbd><span class="oc-c-danger">**ДАННЫЙ МОД НЕОБЯЗАТЕЛЬНЫЙ!**</span></kbd>\
-Можно, как на обычном сервере - использовать <span class="oc-c-primary">**`обычный чат`**</span>.
+::: tip Мод необязателен
+Без мода можно играть как на обычном сервере и общаться через [текстовый чат](./chat).
 :::
 
-Для того чтобы получить возможность общаться с игроками при помощи голоса, вам необходимо скачать мод <span class="oc-c-primary">**`SimpleVoiceChat`**</span>. <br>
+## Установка
 
-<span class="oc-c-primary">•</span> Скачать <span class="oc-c-primary">**`SimpleVoiceChat`**</span> - [**\*КЛИК**](https://modrinth.com/plugin/simple-voice-chat/versions?l=fabric\&l=neoforge\&l=forge\&l=quilt\&g=1.21.4\&g=1.21.5\&g=1.21.6\&g=1.21.7\&g=1.21.8) _**(👈 жмяк)**_
+Чтобы говорить голосом, установите мод **Simple Voice Chat** под вашу версию игры и загрузчик (Fabric, NeoForge, Forge или Quilt).
 
-## <span class="oc-c-primary">**Настройки**</span>
+[Скачать Simple Voice Chat на Modrinth](https://modrinth.com/plugin/simple-voice-chat)
 
-Чтобы открыть настройки <span class="oc-c-primary">**`SimpleVoiceChat'а`**</span>, надо нажать на клавишу <span class="oc-c-purple">**`V`**</span>. \
-<span class="oc-c-purple">(по стандарту)</span>
+## Управление
 
-## <span class="oc-c-primary">**Группы**</span>
+| Клавиша | Действие |
+| --- | --- |
+| <kbd>V</kbd> | открыть настройки голосового чата |
+| <kbd>G</kbd> | открыть меню групп |
 
-Чтобы открыть меню групп, нажмите на <span class="oc-c-purple">**`G`**</span>. <br>
-
+Клавиши указаны по умолчанию, их можно поменять в настройках управления.
