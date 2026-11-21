@@ -341,3 +341,8 @@
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 @media (max-width: 640px) { .oc-wh__search-kbd { display: none !important; } }
+
+/* Галерея пар картинок (обычный и прокачанный моб и т.п.) */
+.vp-doc .oc-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 16px 0; }
+.vp-doc .oc-pair figure { margin: 0; }
+.vp-doc .oc-pair figcaption { margin-top: 6px; font-weight: 600; }
