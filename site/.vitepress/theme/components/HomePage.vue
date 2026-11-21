@@ -41,7 +41,7 @@ const steps = [
     <section class="oc-hero" :style="{ '--oc-cover': `url(${withBase('/img/cover.webp')})` }">
       <div class="oc-hero__inner">
         <img class="oc-hero__logo" :src="withBase('/img/logo.png')" alt="" width="112" height="112" />
-        <h1 class="oc-hero__title"><span class="oc-accent">ORI</span>CHILL</h1>
+        <h1 class="oc-hero__title"><span class="oc-brand-text">ORICHILL</span></h1>
         <p class="oc-hero__lead">
           Хардкорное ванильное выживание с PvE, RPG и полу-RP. Мир, где каждый шаг имеет значение,
           а ламповое сообщество помогает его пройти.
