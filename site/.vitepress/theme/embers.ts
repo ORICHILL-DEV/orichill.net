@@ -17,7 +17,7 @@ export function startEmbers(canvas: HTMLCanvasElement, area: HTMLElement): () =>
   let w = 0, h = 0, raf = 0, running = false, visible = true
   const parts: P[] = []
   const mobile = matchMedia('(max-width: 640px)').matches
-  const MAX = mobile ? 26 : 60
+  const MAX = mobile ? 16 : 36
 
   function resize() {
     w = canvas.clientWidth
@@ -35,10 +35,10 @@ export function startEmbers(canvas: HTMLCanvasElement, area: HTMLElement): () =>
       x: cx + (Math.random() - 0.5) * spread * (Math.random() < 0.6 ? 0.5 : 2),
       y: h * (0.45 + Math.random() * 0.6),
       vx: (Math.random() - 0.5) * 0.25,
-      vy: -(0.25 + Math.random() * 0.6),
+      vy: -(0.15 + Math.random() * 0.35),
       r: 0.8 + Math.random() * 2.2,
       life: 0,
-      max: 220 + Math.random() * 260,
+      max: 360 + Math.random() * 360,
       hue: COLORS[(Math.random() * COLORS.length) | 0],
     }
   }
@@ -54,7 +54,7 @@ export function startEmbers(canvas: HTMLCanvasElement, area: HTMLElement): () =>
       p.y += p.vy
       const t = p.life / p.max
       if (t >= 1 || p.y < -10) { parts.splice(i, 1); continue }
-      const a = Math.sin(Math.PI * t) * 0.85 // плавно появляется и гаснет
+      const a = Math.sin(Math.PI * t) * 0.5 // плавно появляется и гаснет
       const g = ctx!.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4)
       g.addColorStop(0, `hsla(${p.hue}, 95%, 72%, ${a})`)
       g.addColorStop(1, `hsla(${p.hue}, 95%, 60%, 0)`)
@@ -100,8 +100,8 @@ export function startParallax(el: HTMLElement): () => void {
     if (!raf) raf = requestAnimationFrame(step)
   }
   function step() {
-    x += (tx - x) * 0.08
-    y += (ty - y) * 0.08
+    x += (tx - x) * 0.04
+    y += (ty - y) * 0.04
     el.style.setProperty('--mx', x.toFixed(3))
     el.style.setProperty('--my', y.toFixed(3))
     raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.002 ? requestAnimationFrame(step) : 0
