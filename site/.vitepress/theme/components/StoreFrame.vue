@@ -43,7 +43,7 @@ onBeforeUnmount(() => clearTimeout(timer))
       />
     </div>
     <p class="oc-store__note">
-      Продавец: [ФИО], ИНН [ИНН], плательщик налога на профессиональный доход. Поддержка: <a href="mailto:support@orichill.net">support@orichill.net</a>.
+      Поддержка: <a href="mailto:support@orichill.net">support@orichill.net</a>.
     </p>
     <p class="oc-store__note">
       Покупки только косметические и предназначены для игроков с лицензионной копией Minecraft: Java Edition.
