@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { withBase } from 'vitepress'
-import { openMap } from '../map'
+import { openMap } from '../frames'
 
 const IP = 'mc.orichill.net'
 const copied = ref(false)
