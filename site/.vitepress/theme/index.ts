@@ -5,6 +5,7 @@ import HomePage from './components/HomePage.vue'
 import { installFrameLinks } from './frames'
 import { installMotion } from './motion'
 import { installToasts } from './toast'
+import { installSearchPanel } from './search-panel'
 import WikiHome from './components/WikiHome.vue'
 import StoreFrame from './components/StoreFrame.vue'
 import './wiki.css'
@@ -23,6 +24,7 @@ export default {
       installFrameLinks()
       installMotion()
       installToasts()
+      installSearchPanel()
     }
   },
 } satisfies Theme

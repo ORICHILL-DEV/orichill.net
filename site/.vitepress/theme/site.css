@@ -549,7 +549,7 @@ html .VPLocalSearchBox .shell {
   border-radius: 0 20px 20px 0;
   border: 0;
   border-right: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 22%, var(--vp-c-divider));
-  background: color-mix(in srgb, var(--vp-c-bg) 96%, transparent);
+  background: var(--vp-c-bg);
   box-shadow: 24px 0 60px rgba(0, 0, 0, 0.35);
   animation: oc-search-in 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -578,6 +578,22 @@ html .VPLocalSearchBox .search-keyboard-shortcuts kbd { border: 1px solid var(--
   html .VPLocalSearchBox .shell { width: 100vw; border-radius: 0; border-right: 0; }
 }
 @media (prefers-reduced-motion: reduce) { html .VPLocalSearchBox .shell, html .VPLocalSearchBox .backdrop { animation: none; } }
+
+/* Плавное закрытие: панель уезжает влево, затемнение растворяется */
+html .VPLocalSearchBox .backdrop { transition: background-color 0.6s ease, backdrop-filter 0.6s ease, -webkit-backdrop-filter 0.6s ease, opacity 0.42s ease; }
+html .VPLocalSearchBox.oc-closing .shell { animation: oc-search-out 0.42s cubic-bezier(0.55, 0, 0.75, 0.25) forwards; }
+html .VPLocalSearchBox.oc-closing .backdrop { opacity: 0; }
+@keyframes oc-search-out { from { transform: none; opacity: 1; } to { transform: translateX(-100%); opacity: 0.6; } }
+
+/* Найденная страница справа: размытие снимается, остаётся лёгкая тень у края панели */
+html .VPLocalSearchBox.oc-previewing .backdrop {
+  background: linear-gradient(90deg, rgba(8, 4, 18, 0.28), rgba(8, 4, 18, 0) 38%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  cursor: zoom-out;
+}
+html .VPLocalSearchBox .result.oc-open { border-color: color-mix(in srgb, var(--oc-mint) 55%, transparent); background: color-mix(in srgb, var(--oc-mint) 8%, var(--vp-c-bg-soft)); }
+html .VPLocalSearchBox .result.oc-open .title-icon, html .VPLocalSearchBox .result.oc-open .titles { color: var(--oc-mint); }
 
 /* ---------- Уведомления (правый верхний угол) ---------- */
 .oc-toasts {
@@ -677,3 +693,8 @@ html .VPLocalSearchBox .search-keyboard-shortcuts kbd { border: 1px solid var(--
 /* Адреса в тексте, которые копируются по клику */
 .vp-doc code.oc-copyable { cursor: copy; transition: background-color 0.3s ease, color 0.3s ease; }
 .vp-doc code.oc-copyable:hover, .vp-doc code.oc-copyable:focus-visible { color: var(--oc-mint); background: color-mix(in srgb, var(--oc-mint) 12%, var(--vp-code-bg)); outline: none; }
+
+/* Пока найденная страница открыта справа, она мягко сдвигается от панели */
+.VPContent { transition: translate 0.55s cubic-bezier(0.22, 1, 0.36, 1); }
+html.oc-search-preview .VPContent { translate: var(--oc-search-shift, 0px) 0; }
+@media (prefers-reduced-motion: reduce) { .VPContent { transition: none; } }
