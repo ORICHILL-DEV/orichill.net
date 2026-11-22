@@ -28,7 +28,7 @@ const wiki: DefaultTheme.SidebarItem[] = [
       { text: i('Lock', 'Защита ЛВ'), link: '/wiki/mechanics/protect-chest' },
       {
         text: i('Swords', 'Развитие персонажа'),
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: i('Flame', 'Навыки'), link: '/wiki/mechanics/skills' },
           { text: i('Crown', 'Ранги'), link: '/wiki/mechanics/ranks' },
@@ -38,7 +38,7 @@ const wiki: DefaultTheme.SidebarItem[] = [
       },
       {
         text: i('Hammer', 'Крафты и предметы'),
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: i('WandSparkles', 'Кастомные зачарования'), link: '/wiki/mechanics/custom-enchants' },
           { text: i('Hammer', 'Кастомные крафты'), link: '/wiki/mechanics/custom-crafts' },
@@ -52,7 +52,7 @@ const wiki: DefaultTheme.SidebarItem[] = [
       },
       {
         text: i('Compass', 'Мир и выживание'),
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: i('Snowflake', 'Сезоны и температура'), link: '/wiki/mechanics/seasons-and-temperature' },
           { text: i('Droplet', 'Жажда'), link: '/wiki/mechanics/zhazhda' },
@@ -63,7 +63,7 @@ const wiki: DefaultTheme.SidebarItem[] = [
       },
       {
         text: i('MessagesSquare', 'Общение'),
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: i('MessagesSquare', 'Чаты'), link: '/wiki/mechanics/chat' },
           { text: i('Mic', 'Голосовой чат'), link: '/wiki/mechanics/voice-chat' },
@@ -79,7 +79,7 @@ const wiki: DefaultTheme.SidebarItem[] = [
   },
   {
     text: i('Ellipsis', 'Прочее'),
-    collapsed: true,
+    collapsed: false,
     items: [
       { text: i('Heart', 'Поддержка проекта'), link: '/wiki/others/donate' },
       { text: i('Video', 'Контентмейкерам'), link: '/wiki/others/content-maker-info' },
@@ -87,7 +87,7 @@ const wiki: DefaultTheme.SidebarItem[] = [
       { text: i('Wifi', 'Подключение с Raknetify'), link: '/wiki/others/raknetify' },
     ],
   },
-  { text: i('FileText', 'Документы'), collapsed: true, items: legal },
+  { text: i('FileText', 'Документы'), collapsed: false, items: legal },
 ]
 
 export default {

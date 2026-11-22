@@ -55,6 +55,16 @@ export default defineConfig({
     search: {
       provider: 'local',
       options: {
+        // Индекс поиска: ссылки (wiki.orichill.net и т.п.) не индексируем, чтобы запрос
+        // «wiki» не находил юридические документы; вики находится и по латинице.
+        _render(src, env, md) {
+          let text = src.replace(/https?:\/\/[^\s,)\]>]+/g, '')
+          if (env.relativePath === 'wiki/index.md') text += '\n\nWiki — вики сервера ORICHILL.'
+          return md.render(text, env)
+        },
+        miniSearch: {
+          searchOptions: { boost: { title: 6, titles: 3, text: 1 }, fuzzy: 0.15, prefix: true },
+        },
         translations: {
           button: { buttonText: 'Поиск', buttonAriaLabel: 'Поиск' },
           modal: {

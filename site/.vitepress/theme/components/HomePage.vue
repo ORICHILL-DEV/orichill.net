@@ -2,6 +2,7 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { withBase } from 'vitepress'
 import { openMap } from '../frames'
+import { copyWithToast } from '../toast'
 import { startEmbers, startParallax } from '../embers'
 
 const hero = ref<HTMLElement>()
@@ -15,16 +16,7 @@ onBeforeUnmount(() => stops.forEach((f) => f()))
 const IP = 'mc.orichill.net'
 const copied = ref(false)
 async function copyIp() {
-  try {
-    await navigator.clipboard.writeText(IP)
-  } catch {
-    const t = document.createElement('textarea')
-    t.value = IP
-    document.body.appendChild(t)
-    t.select()
-    document.execCommand('copy')
-    t.remove()
-  }
+  await copyWithToast(IP, 'IP-адрес скопирован', `${IP} · вставьте его в «Сетевая игра» → «Добавить сервер»`)
   copied.value = true
   setTimeout(() => (copied.value = false), 1800)
 }
