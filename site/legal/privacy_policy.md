@@ -6,7 +6,7 @@
 
 **1.1.** Оператор ставит своей важнейшей целью и условием осуществления своей деятельности соблюдение прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну.
 
-**1.2.** Настоящая политика Оператора в отношении обработки персональных данных (далее - Политика) применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта https://orichill.net, https://wiki.orichill.net, https://map.orichill.net, https://panel.orichill.net, https://www.orichill.net, https://store.orichill.net, https://ds.orichill.net, https://discord.orichill.net, https://vip-mine.ru
+**1.2.** Настоящая политика Оператора в отношении обработки персональных данных (далее - Политика) применяется ко всей информации, которую Оператор может получить о посетителях веб-сайта https://orichill.net, https://wiki.orichill.net, https://map.orichill.net, https://panel.orichill.net, https://www.orichill.net, https://store.orichill.net, https://ds.orichill.net, https://discord.orichill.net
 
 <br>
 
@@ -16,7 +16,7 @@
 
 **2.2.** Блокирование персональных данных - временное прекращение обработки персональных данных (за исключением случаев, если обработка необходима для уточнения персональных данных);
 
-**2.3.** Веб-сайт - совокупность графических и информационных материалов, а также программ для ЭВМ и баз данных, обеспечивающих их доступность в сети интернет по сетевому адресу https://orichill.net, https://vip-mine.ru;
+**2.3.** Веб-сайт - совокупность графических и информационных материалов, а также программ для ЭВМ и баз данных, обеспечивающих их доступность в сети интернет по сетевому адресу https://orichill.net;
 
 **2.4.** Информационная система персональных данных — совокупность содержащихся в базах данных персональных данных, и обеспечивающих их обработку информационных технологий и технических средств;
 
@@ -26,9 +26,9 @@
 
 **2.7.** Оператор - государственный орган, муниципальный орган, юридическое или физическое лицо, самостоятельно или совместно с другими лицами организующие и (или) осуществляющие обработку персональных данных, а также определяющие цели обработки персональных данных, состав персональных данных, подлежащих обработке, действия (операции), совершаемые с персональными данными;
 
-**2.8.** Персональные данные - любая информация, относящаяся прямо или косвенно к определенному или определяемому Пользователю веб-сайта https://orichill.net, https://wiki.orichill.net, https://map.orichill.net, https://panel.orichill.net, https://www.orichill.net, https://store.orichill.net, https://ds.orichill.net, https://discord.orichill.net, https://vip-mine.ru;
+**2.8.** Персональные данные - любая информация, относящаяся прямо или косвенно к определенному или определяемому Пользователю веб-сайта https://orichill.net, https://wiki.orichill.net, https://map.orichill.net, https://panel.orichill.net, https://www.orichill.net, https://store.orichill.net, https://ds.orichill.net, https://discord.orichill.net;
 
-**2.9.** Пользователь - любой посетитель веб-сайта https://orichill.net, https://wiki.orichill.net, https://map.orichill.net, https://panel.orichill.net, https://www.orichill.net, https://store.orichill.net, https://ds.orichill.net, https://discord.orichill.net, https://vip-mine.ru;
+**2.9.** Пользователь - любой посетитель веб-сайта https://orichill.net, https://wiki.orichill.net, https://map.orichill.net, https://panel.orichill.net, https://www.orichill.net, https://store.orichill.net, https://ds.orichill.net, https://discord.orichill.net;
 
 **2.10.** Предоставление персональных данных - действия, направленные на раскрытие персональных данных определенному лицу или определенному кругу лиц;
 
