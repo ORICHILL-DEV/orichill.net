@@ -28,7 +28,7 @@ const wiki: DefaultTheme.SidebarItem[] = [
       { text: i('Lock', 'Защита ЛВ'), link: '/wiki/mechanics/protect-chest' },
       {
         text: i('Swords', 'Развитие персонажа'),
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: i('Flame', 'Навыки'), link: '/wiki/mechanics/skills' },
           { text: i('Crown', 'Ранги'), link: '/wiki/mechanics/ranks' },
@@ -38,7 +38,7 @@ const wiki: DefaultTheme.SidebarItem[] = [
       },
       {
         text: i('Hammer', 'Крафты и предметы'),
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: i('WandSparkles', 'Кастомные зачарования'), link: '/wiki/mechanics/custom-enchants' },
           { text: i('Hammer', 'Кастомные крафты'), link: '/wiki/mechanics/custom-crafts' },
@@ -52,7 +52,7 @@ const wiki: DefaultTheme.SidebarItem[] = [
       },
       {
         text: i('Compass', 'Мир и выживание'),
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: i('Snowflake', 'Сезоны и температура'), link: '/wiki/mechanics/seasons-and-temperature' },
           { text: i('Droplet', 'Жажда'), link: '/wiki/mechanics/zhazhda' },
@@ -63,7 +63,7 @@ const wiki: DefaultTheme.SidebarItem[] = [
       },
       {
         text: i('MessagesSquare', 'Общение'),
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: i('MessagesSquare', 'Чаты'), link: '/wiki/mechanics/chat' },
           { text: i('Mic', 'Голосовой чат'), link: '/wiki/mechanics/voice-chat' },
@@ -90,7 +90,8 @@ const wiki: DefaultTheme.SidebarItem[] = [
   { text: i('FileText', 'Документы'), collapsed: false, items: legal },
 ]
 
+// Вики и документы делят одно меню, чтобы при переходе в документы не пропадали другие разделы.
 export default {
   '/wiki/': wiki,
-  '/legal/': [{ text: i('FileText', 'Документы'), items: legal }],
+  '/legal/': wiki,
 } satisfies DefaultTheme.Sidebar
