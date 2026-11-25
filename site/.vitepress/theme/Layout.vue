@@ -5,9 +5,9 @@ import { nextTick, onMounted, watch } from 'vue'
 import mediumZoom, { type Zoom } from 'medium-zoom'
 import FrameModal from './components/FrameModal.vue'
 import Toaster from './components/Toaster.vue'
-import { markCopyable } from './toast'
-import { isStorePath, openStore } from './frames'
-import { bindReveal, revealPage } from './motion'
+import { markCopyable } from './lib/toast'
+import { isStorePath, openStore } from './lib/frames'
+import { bindReveal, revealPage } from './lib/motion'
 
 const route = useRoute()
 const router = useRouter()
@@ -28,7 +28,14 @@ function bindZoom() {
   zoom.attach('.vp-doc img:not(.no-zoom)')
 }
 
+// На главной шапка прозрачная, пока виден верх первого экрана
+function syncNav() {
+  document.documentElement.classList.toggle('oc-nav-clear', route.path === '/' && window.scrollY < 24)
+}
+
 onMounted(() => {
+  syncNav()
+  window.addEventListener('scroll', syncNav, { passive: true })
   bindZoom()
   bindReveal()
   markCopyable()
@@ -37,6 +44,7 @@ watch(
   () => route.path,
   async () => {
     await nextTick()
+    syncNav()
     revealPage()
     bindZoom()
     bindReveal()

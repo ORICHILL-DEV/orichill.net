@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, reactive } from 'vue'
-import { dismiss, toasts, type Toast } from '../toast'
+import { dismiss, toasts, type Toast } from '../lib/toast'
 
 // Таймер у каждого уведомления свой и замирает, пока на него наведена мышь.
 const timers = reactive(new Map<number, { left: number; start: number; h?: number }>())

@@ -1,0 +1,92 @@
+/* ===== Окна карты и магазина, страница /store ===== */
+
+/* Блокировка прокрутки под открытым окном */
+html.oc-map-lock { overflow: hidden; }
+
+.oc-map {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(8, 4, 18, 0.72);
+  backdrop-filter: blur(4px);
+}
+.oc-map__window {
+  width: min(1400px, 100%);
+  height: min(900px, 100%);
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--oc-border);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+.oc-map__bar { display: flex; align-items: center; gap: 16px; padding: 10px 12px 10px 18px; border-bottom: 1px solid var(--oc-border); }
+.oc-map__title { font-weight: 800; flex: 1; }
+.oc-map__ext { font-size: 14px; color: var(--vp-c-brand-1); text-decoration: none; }
+.oc-map__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-default-soft);
+  cursor: pointer;
+}
+.oc-map__close:hover { background: var(--vp-c-default-2); }
+.oc-map__frame { flex: 1; width: 100%; border: 0; background: #0b0b10; }
+@media (max-width: 640px) {
+  .oc-map { padding: 0; }
+  .oc-map__window { border-radius: 0; height: 100%; }
+  .oc-map__ext { display: none; }
+}
+.oc-map-enter-active, .oc-map-leave-active { transition: opacity 0.2s ease; }
+.oc-map-enter-active .oc-map__window, .oc-map-leave-active .oc-map__window { transition: transform 0.2s ease; }
+.oc-map-enter-from, .oc-map-leave-to { opacity: 0; }
+.oc-map-enter-from .oc-map__window, .oc-map-leave-to .oc-map__window { transform: scale(0.98) translateY(8px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .oc-btn, .oc-card, .oc-ip__btn, .oc-map, .oc-map__window { transition: none !important; }
+}
+
+/* Карта открывается окном, поэтому значок внешней ссылки у неё не нужен */
+a[href^="https://map.orichill.net"] .vpi-arrow-up-right,
+a[href^="https://map.orichill.net"]::after { display: none !important; }
+
+
+/* ===== Магазин (/store): EasyDonate внутри сайта ===== */
+.oc-store { max-width: 1280px; margin: 0 auto; padding: 32px 24px 24px; }
+.oc-store__bar { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.oc-store__title { margin: 0; font-size: clamp(28px, 4vw, 38px); font-weight: 900; line-height: 1.1; }
+.oc-store__sub { margin: 8px 0 0; color: var(--vp-c-text-2); }
+.oc-store__frame-wrap {
+  position: relative;
+  height: calc(100vh - var(--vp-nav-height) - 190px);
+  min-height: 560px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--oc-border);
+  background: var(--vp-c-bg-soft);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+.oc-store__frame { width: 100%; height: 100%; border: 0; opacity: 0; transition: opacity 0.5s ease; }
+.oc-store__frame.is-ready { opacity: 1; }
+.oc-store__loading { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 8px; text-align: center; color: var(--vp-c-text-2); }
+.oc-store__loading p { margin: 0; }
+.oc-store__slow a, .oc-store__note a { color: var(--vp-c-brand-1); }
+.oc-store__spinner { width: 36px; height: 36px; border-radius: 50%; border: 3px solid var(--vp-c-brand-soft); border-top-color: var(--vp-c-brand-1); animation: oc-spin 0.9s linear infinite; }
+@keyframes oc-spin { to { transform: rotate(360deg); } }
+.oc-store__note { margin: 12px 0 0; font-size: 14px; color: var(--vp-c-text-2); }
+@media (max-width: 640px) {
+  .oc-store { padding: 20px 12px; }
+  .oc-store__frame-wrap { height: calc(100vh - var(--vp-nav-height) - 220px); border-radius: 6px; }
+  .oc-store__ext { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .oc-store__spinner { animation-duration: 3s; } .oc-store__frame { transition: none; } }
+.oc-map__body { position: relative; flex: 1; display: flex; }
+.oc-map__loading { position: absolute; inset: 0; z-index: 1; display: grid; place-content: center; justify-items: center; gap: 8px; color: var(--vp-c-text-2); pointer-events: none; }
+.oc-map__loading p { margin: 0; }
+

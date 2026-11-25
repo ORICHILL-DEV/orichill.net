@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { watch, onMounted, onBeforeUnmount, ref, nextTick, computed } from 'vue'
-import { openFrame, close, frames, fromHash, type FrameKind } from '../frames'
+import { openFrame, close, frames, fromHash, type FrameKind } from '../lib/frames'
 
 // iframe создаётся при первом открытии и потом живёт дальше,
 // чтобы повторное открытие было мгновенным
