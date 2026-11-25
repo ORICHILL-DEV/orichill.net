@@ -1,0 +1,75 @@
+/* =========================================================
+   ORICHILL · токены: цвета, шрифты, движение, формы
+   ========================================================= */
+
+:root {
+  /* бренд */
+  --oc-violet: #6000d4;
+  --oc-violet-2: #8a3cf0;
+  --oc-lilac: #c9a8ff;
+  --oc-mint: #66cdaa;
+  --oc-signal: #5ef2c8; /* тонкие линии интерфейса и «живые» индикаторы */
+  --oc-amber: #f0b44c;
+
+  /* шрифты: заголовки, моно-подписи интерфейса, текст */
+  --oc-font-display: 'Unbounded Variable', 'Inter', system-ui, sans-serif;
+  --oc-font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --vp-font-family-mono: var(--oc-font-mono);
+
+  /* движение: всё мягкое и неяркое */
+  --oc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --oc-ease-in: cubic-bezier(0.55, 0, 0.75, 0.25);
+  --oc-fast: 0.18s;
+  --oc-med: 0.32s;
+  --oc-slow: 0.9s;
+
+  /* формы: срезанные углы вместо скруглений на главной */
+  --oc-cut: 14px;
+  --oc-radius: 14px;
+
+  /* VitePress */
+  --vp-sidebar-width: 288px;
+  --vp-c-brand-1: #6000d4;
+  --vp-c-brand-2: #7a2be0;
+  --vp-c-brand-3: #66cdaa;
+  --vp-c-brand-soft: rgba(96, 0, 212, 0.1);
+  --vp-home-hero-name-color: var(--vp-c-brand-1);
+
+  /* цвета разметки из GitBook */
+  --oc-primary: #6000d4;
+  --oc-success: #1f9d55;
+  --oc-warning: #c27c0e;
+  --oc-danger: #d43c3c;
+  --oc-info: #2f6fd1;
+  --oc-tint: #2a9d8f;
+
+  /* линии интерфейса */
+  --oc-line: color-mix(in srgb, var(--vp-c-brand-1) 22%, var(--vp-c-divider));
+  --oc-grid-line: rgba(96, 0, 212, 0.06);
+}
+
+.dark {
+  --vp-c-bg: #0b0a12;
+  --vp-c-bg-alt: #08070e;
+  --vp-c-bg-soft: #13111c;
+  --vp-c-bg-elv: #181523;
+  --vp-c-divider: #242033;
+  --vp-c-gutter: #06050a;
+  --vp-c-brand-1: #a874ff;
+  --vp-c-brand-2: #9157f5;
+  --vp-c-brand-soft: rgba(168, 116, 255, 0.14);
+
+  --oc-primary: #a874ff;
+  --oc-success: #4cd38a;
+  --oc-warning: #f0b44c;
+  --oc-danger: #ff6b6b;
+  --oc-info: #6ea8ff;
+  --oc-tint: #66cdaa;
+
+  --oc-grid-line: rgba(168, 116, 255, 0.05);
+}
+
+/* Срезанные углы: левый верхний и правый нижний */
+.oc-cut {
+  clip-path: polygon(var(--oc-cut) 0, 100% 0, 100% calc(100% - var(--oc-cut)), calc(100% - var(--oc-cut)) 100%, 0 100%, 0 var(--oc-cut));
+}

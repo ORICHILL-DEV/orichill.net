@@ -1,0 +1,198 @@
+/* =========================================================
+   ORICHILL · общее: шрифты, шапка, кнопки, название, подвал,
+   появление блоков при прокрутке
+   ========================================================= */
+
+::selection { background: color-mix(in srgb, var(--vp-c-brand-1) 30%, transparent); }
+
+/* Моно-подпись интерфейса: «// 01 — МИР» */
+.oc-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--oc-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--vp-c-brand-1);
+}
+.oc-kicker::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+/* ---------- Название ORICHILL: непрерывное переливание ----------
+   Градиент периодичен (два цикла на 200% ширины), поэтому цикл идёт без рывка. */
+:root {
+  --oc-brand-dark: linear-gradient(90deg,
+    #6000d4 0%, #8a3cf0 12.5%, #c9a8ff 25%, #8a3cf0 37.5%, #6000d4 50%,
+    #8a3cf0 62.5%, #c9a8ff 75%, #8a3cf0 87.5%, #6000d4 100%);
+  --oc-brand-light: linear-gradient(90deg,
+    #8a4dff 0%, #c4a6ff 12.5%, #ffffff 25%, #c4a6ff 37.5%, #8a4dff 50%,
+    #c4a6ff 62.5%, #ffffff 75%, #c4a6ff 87.5%, #8a4dff 100%);
+}
+.oc-brand-text {
+  --oc-brand-gradient: var(--oc-brand-dark);
+  display: inline-block;
+  background-image: var(--oc-brand-gradient);
+  background-size: 200% 100%;
+  background-repeat: repeat-x;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: oc-brand-flow 12s linear infinite;
+}
+.dark .oc-brand-text { --oc-brand-gradient: var(--oc-brand-light); }
+@keyframes oc-brand-flow { from { background-position: 100% 50%; } to { background-position: 0% 50%; } }
+
+/* ---------- Кнопки: срезанные углы, тонкая рамка, мягкий блик ---------- */
+.oc-btn {
+  --oc-cut: 10px;
+  --oc-btn-fill: var(--vp-c-bg-soft);
+  --oc-btn-edge: var(--oc-line);
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 24px;
+  border: 0;
+  font-family: var(--oc-font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  white-space: nowrap;
+  color: var(--vp-c-text-1) !important;
+  background: var(--oc-btn-edge);
+  clip-path: polygon(var(--oc-cut) 0, 100% 0, 100% calc(100% - var(--oc-cut)), calc(100% - var(--oc-cut)) 100%, 0 100%, 0 var(--oc-cut));
+  cursor: pointer;
+  transition: transform 0.6s var(--oc-ease), background 0.6s ease, color 0.4s ease;
+}
+.oc-btn::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  background: var(--oc-btn-fill);
+  clip-path: inherit;
+  transition: background 0.6s ease;
+}
+.oc-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 36%;
+  z-index: -1;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+  transform: translateX(-140%) skewX(-20deg);
+  pointer-events: none;
+}
+.oc-btn:hover { transform: translateY(-2px); }
+.oc-btn:hover::after { animation: oc-shine 1.6s var(--oc-ease); }
+.oc-btn:active { transform: translateY(0) scale(0.98); transition-duration: 0.1s; }
+.oc-btn:focus-visible { outline: 2px solid var(--oc-signal); outline-offset: 3px; }
+.oc-btn--brand {
+  --oc-btn-edge: linear-gradient(120deg, #b98cff, var(--oc-violet) 55%, #3a0a8a);
+  --oc-btn-fill: linear-gradient(120deg, #7b2ff0, var(--oc-violet) 60%, #4a0fa8);
+  color: #fff !important;
+}
+.oc-btn--brand:hover { --oc-btn-fill: linear-gradient(120deg, #8a42ff, #6a0ae0 60%, #5212b8); }
+.oc-btn--ghost {
+  --oc-btn-edge: rgba(255, 255, 255, 0.28);
+  --oc-btn-fill: rgba(12, 8, 26, 0.55);
+  color: #fff !important;
+  backdrop-filter: blur(6px);
+}
+.oc-btn--ghost:hover { --oc-btn-edge: var(--oc-signal); --oc-btn-fill: rgba(20, 14, 40, 0.75); }
+.oc-btn--line { --oc-btn-fill: var(--vp-c-bg); }
+.oc-btn--line:hover { --oc-btn-edge: var(--vp-c-brand-1); }
+.oc-btn__arrow { transition: transform 0.6s var(--oc-ease); }
+.oc-btn:hover .oc-btn__arrow { transform: translateX(4px); }
+@keyframes oc-shine { from { transform: translateX(-140%) skewX(-20deg); } to { transform: translateX(320%) skewX(-20deg); } }
+
+/* ---------- Шапка ---------- */
+.VPNav a, .VPNavBar a, .VPNavScreen a, .VPNavBarTitle .title { text-decoration: none !important; }
+.VPNavBarTitle .title { font-family: var(--oc-font-display); font-weight: 700; letter-spacing: 0.06em; font-size: 15px; }
+.VPNavBarTitle .logo { transition: transform 0.6s var(--oc-ease); }
+.VPNavBarTitle:hover .logo { transform: rotate(-8deg) scale(1.06); }
+
+/* стеклянная шапка с тонкой линией снизу */
+:root { --vp-nav-bg-color: color-mix(in srgb, var(--vp-c-bg) 80%, transparent); }
+.VPNav { backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); transition: background-color 0.6s ease; }
+.VPNavBar .divider-line { background: linear-gradient(90deg, transparent, var(--oc-line) 20%, var(--oc-line) 80%, transparent) !important; transition: opacity 0.6s ease; }
+
+/* На главной над первым экраном шапка прозрачная (класс ставит Layout.vue) */
+html.oc-nav-clear .VPNav { backdrop-filter: none; -webkit-backdrop-filter: none; }
+html.oc-nav-clear .VPNavBar:not(.screen-open),
+html.oc-nav-clear .VPNavBar:not(.screen-open) .content-body { background-color: transparent !important; }
+html.oc-nav-clear .VPNavBar:not(.screen-open) .divider-line { opacity: 0; }
+html.oc-nav-clear .VPNavBar:not(.screen-open) :is(.title, .VPNavBarMenuLink, .VPSocialLink, .VPNavBarHamburger) { color: rgba(255, 255, 255, 0.9); }
+html.oc-nav-clear .VPNavBar:not(.screen-open) .VPNavBarHamburger span { background-color: rgba(255, 255, 255, 0.9); }
+.VPNavBar, .VPNavBar .content-body { transition: background-color 0.6s ease !important; }
+
+/* пункты меню: иконка + текст, маркер снизу в виде тонкой метки */
+.VPNavBarMenuLink { position: relative; }
+.VPNavBarMenuLink::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  width: calc(100% - 24px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--vp-c-brand-1), var(--oc-mint));
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 0.5s var(--oc-ease);
+}
+.VPNavBarMenuLink:hover::after, .VPNavBarMenuLink.active::after { transform: translateX(-50%) scaleX(1); }
+.VPSocialLink { transition: transform 0.5s var(--oc-ease), color 0.4s; }
+.VPSocialLink:hover { transform: translateY(-2px); color: var(--vp-c-brand-1); }
+
+/* Карта открывается окном, поэтому значок внешней ссылки у неё не нужен */
+a[href^="https://map.orichill.net"] .vpi-arrow-up-right,
+a[href^="https://map.orichill.net"]::after { display: none !important; }
+
+/* ---------- Подвал ---------- */
+.VPFooter {
+  position: relative;
+  border-top: 0 !important;
+  background:
+    linear-gradient(90deg, transparent, var(--oc-line) 20%, var(--oc-line) 80%, transparent) top / 100% 1px no-repeat,
+    var(--vp-c-bg) !important;
+}
+.VPFooter .message { font-size: 13px; line-height: 1.9; }
+.VPFooter .message a { color: var(--vp-c-text-2); text-decoration: none; transition: color 0.4s; }
+.VPFooter .message a:hover { color: var(--vp-c-brand-1); }
+.VPFooter .copyright { font-family: var(--oc-font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* ---------- Появление блоков при прокрутке ----------
+   Класс html.oc-reveal-on ставит скрипт, без JS всё видно сразу. translate отдельно
+   от transform, чтобы подъём при наведении продолжал работать. */
+html.oc-reveal-on .oc-reveal { opacity: 0; translate: 0 22px; }
+html.oc-reveal-on .oc-reveal.oc-in {
+  opacity: 1;
+  translate: 0 0;
+  transition:
+    opacity 1.1s var(--oc-ease) calc(var(--d, 0) * 110ms),
+    translate 1.1s var(--oc-ease) calc(var(--d, 0) * 110ms),
+    border-color 0.6s ease, transform 0.7s var(--oc-ease), box-shadow 0.7s ease, background 0.6s ease;
+}
+
+/* Адреса в тексте, которые копируются по клику */
+.vp-doc code.oc-copyable { cursor: copy; transition: background-color 0.3s ease, color 0.3s ease; }
+.vp-doc code.oc-copyable:hover, .vp-doc code.oc-copyable:focus-visible { color: var(--oc-mint); background: color-mix(in srgb, var(--oc-mint) 12%, var(--vp-code-bg)); outline: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .oc-brand-text, .oc-btn::after { animation: none !important; }
+  .oc-btn, .VPNavBarMenuLink::after, .VPSocialLink, .VPNavBarTitle .logo { transition: none !important; }
+  .oc-btn:hover { transform: none; }
+  html.oc-reveal-on .oc-reveal { opacity: 1; translate: none; }
+}

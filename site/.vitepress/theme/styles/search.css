@@ -1,0 +1,97 @@
+/* ===== Поиск: боковая панель слева =====
+   Логика (плавное закрытие, страница справа) в lib/search-panel.ts */
+html .VPLocalSearchBox { justify-content: flex-start; }
+html .VPLocalSearchBox .backdrop { background: rgba(8, 4, 18, 0.45); backdrop-filter: blur(4px); animation: oc-fade-in 0.5s ease; }
+html .VPLocalSearchBox .shell {
+  margin: 0;
+  width: min(440px, 100vw);
+  height: 100vh;
+  max-height: none;
+  padding: 18px 16px 14px;
+  border-radius: 0;
+  border: 0;
+  border-right: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 22%, var(--vp-c-divider));
+  background: var(--vp-c-bg);
+  box-shadow: 24px 0 60px rgba(0, 0, 0, 0.35);
+  animation: oc-search-in 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes oc-search-in { from { transform: translateX(-100%); } to { transform: none; } }
+@keyframes oc-fade-in { from { opacity: 0; } to { opacity: 1; } }
+html .VPLocalSearchBox .search-bar {
+  height: 48px;
+  border-radius: 6px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  transition: border-color 0.5s ease, box-shadow 0.6s ease;
+}
+html .VPLocalSearchBox .search-bar:focus-within {
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 60%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--vp-c-brand-1) 12%, transparent);
+}
+html .VPLocalSearchBox .search-input { font-size: 15px; }
+html .VPLocalSearchBox .results { overflow-y: auto; overscroll-behavior: contain; }
+html .VPLocalSearchBox a, html .VPLocalSearchBox a * { text-decoration: none !important; }
+html .VPLocalSearchBox .result { border-radius: 6px; transition: border-color 0.4s ease, background 0.4s ease; }
+html .VPLocalSearchBox .result.selected { border-color: color-mix(in srgb, var(--vp-c-brand-1) 45%, transparent); }
+html .VPLocalSearchBox .titles { font-size: 14px; }
+html .VPLocalSearchBox .search-keyboard-shortcuts { margin-top: auto; }
+html .VPLocalSearchBox .search-keyboard-shortcuts kbd { border: 1px solid var(--vp-c-divider); border-radius: 6px; }
+@media (max-width: 767px) {
+  html .VPLocalSearchBox .shell { width: 100vw; border-radius: 0; border-right: 0; }
+}
+@media (prefers-reduced-motion: reduce) { html .VPLocalSearchBox .shell, html .VPLocalSearchBox .backdrop { animation: none; } }
+
+/* Плавное закрытие: панель уезжает влево, затемнение растворяется */
+html .VPLocalSearchBox .backdrop { transition: background-color 0.6s ease, backdrop-filter 0.6s ease, -webkit-backdrop-filter 0.6s ease, opacity 0.42s ease; }
+html .VPLocalSearchBox.oc-closing .shell { animation: oc-search-out 0.42s cubic-bezier(0.55, 0, 0.75, 0.25) forwards; }
+html .VPLocalSearchBox.oc-closing .backdrop { opacity: 0; }
+@keyframes oc-search-out { from { transform: none; opacity: 1; } to { transform: translateX(-100%); opacity: 0.6; } }
+
+/* Найденная страница справа: размытие снимается, остаётся лёгкая тень у края панели */
+html .VPLocalSearchBox.oc-previewing .backdrop {
+  background: linear-gradient(90deg, rgba(8, 4, 18, 0.28), rgba(8, 4, 18, 0) 38%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  cursor: zoom-out;
+}
+html .VPLocalSearchBox .result.oc-open { border-color: color-mix(in srgb, var(--oc-mint) 55%, transparent); background: color-mix(in srgb, var(--oc-mint) 8%, var(--vp-c-bg-soft)); }
+html .VPLocalSearchBox .result.oc-open .title-icon, html .VPLocalSearchBox .result.oc-open .titles { color: var(--oc-mint); }
+
+
+/* Пока найденная страница открыта справа, она мягко сдвигается от панели */
+.VPContent { transition: translate 0.55s cubic-bezier(0.22, 1, 0.36, 1); }
+html.oc-search-preview .VPContent { translate: var(--oc-search-shift, 0px) 0; }
+@media (prefers-reduced-motion: reduce) { .VPContent { transition: none; } }
+
+/* Кнопка поиска в шапке */
+html .VPNavBarSearch .DocSearch-Button {
+  height: 38px;
+  padding: 0 8px 0 12px;
+  border-radius: 6px;
+  border: 1px solid var(--vp-c-divider);
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 70%, transparent);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.5s ease, background 0.5s ease, box-shadow 0.6s ease;
+}
+html .VPNavBarSearch .DocSearch-Button:hover {
+  border-color: color-mix(in srgb, var(--vp-c-brand-1) 55%, transparent);
+  background: var(--vp-c-bg-soft);
+  box-shadow: 0 6px 20px rgba(96, 0, 212, 0.1);
+}
+html .VPNavBarSearch .DocSearch-Button .DocSearch-Search-Icon { color: var(--vp-c-brand-1); transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+html .VPNavBarSearch .DocSearch-Button:hover .DocSearch-Search-Icon { transform: scale(1.08); }
+html .VPNavBarSearch .DocSearch-Button .DocSearch-Button-Placeholder { font-size: 13px; padding: 0 16px 0 8px; color: var(--vp-c-text-2); }
+html .VPNavBarSearch .DocSearch-Button .DocSearch-Button-Keys { min-width: auto; }
+html .VPNavBarSearch .DocSearch-Button .DocSearch-Button-Key {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: var(--vp-c-bg);
+  font-size: 11px;
+  padding: 0 6px;
+  height: 22px;
+  line-height: 20px;
+}
+@media (max-width: 767px) {
+  html .VPNavBarSearch .DocSearch-Button { width: 38px; padding: 0; justify-content: center; }
+}
+

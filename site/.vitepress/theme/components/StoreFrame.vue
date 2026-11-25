@@ -4,7 +4,7 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 // Магазин работает на EasyDonate (store.orichill.net) и встраивается в сайт рамкой,
 // поэтому игрок не покидает www.orichill.net. Оплата открывается в новой вкладке,
 // если платёжная система не разрешает показ внутри рамки.
-import { STORE_URL } from '../frames'
+import { STORE_URL } from '../lib/frames'
 const loaded = ref(false)
 const slow = ref(false)
 let timer: ReturnType<typeof setTimeout> | undefined

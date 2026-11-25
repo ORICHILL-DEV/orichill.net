@@ -12,6 +12,7 @@ export default defineConfig({
   description: 'ORICHILL: хардкорное ванильное выживание Minecraft с PvE, RPG и полу-RP.',
   cleanUrls: true,
   lastUpdated: true,
+  appearance: 'dark',
   sitemap: { hostname: SITE },
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/img/logo.png' }],

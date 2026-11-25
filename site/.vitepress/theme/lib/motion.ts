@@ -5,12 +5,12 @@
  *  - мягкое появление страницы при переходе.
  * Всё отключается, если в системе включено «уменьшение движения».
  */
+import { reducedMotion as reduced } from './env'
 
 const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)' // easeOutQuint: быстро стартует, мягко садится
 const OPEN_MS = 420
 const CLOSE_MS = 320
 
-const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 const running = new WeakMap<Element, Animation>()
 

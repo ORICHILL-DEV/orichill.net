@@ -5,6 +5,8 @@
  *    чтобы можно было сразу перейти к другому результату.
  * Встроенный компонент не меняем, а перехватываем события раньше него.
  */
+import { reducedMotion as reduced } from './env'
+
 const BOX = '.VPLocalSearchBox'
 const CLOSE_MS = 420
 let closing = false
@@ -12,7 +14,6 @@ let passThrough = false
 
 const box = () => document.querySelector<HTMLElement>(BOX)
 const wide = () => window.matchMedia('(min-width: 768px)').matches
-const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 // Сдвигаем страницу вправо, чтобы панель не закрывала начало текста.
 function shiftPage() {
